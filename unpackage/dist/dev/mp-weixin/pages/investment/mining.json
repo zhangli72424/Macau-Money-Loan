@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#211d1e",
+  "navigationBarTitleText": "我的投资",
+  "usingComponents": {
+    "mima": "/components/wakary-input/wakary-input",
+    "uni-nav-bar-new": "/components/common/uni-nav-bar-new",
+    "uni-status-bar": "/components/uni-status-bar/uni-status-bar"
+  }
+}

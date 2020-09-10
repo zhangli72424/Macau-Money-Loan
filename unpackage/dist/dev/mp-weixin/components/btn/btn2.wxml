@@ -1,0 +1,1 @@
+<view class="app-btn data-v-96141e38" style="{{'background-color:'+(backgroundColor)+';'}}" hover-class="hover-transform1" data-event-opts="{{[['tap',[['handleclick',['$event']]]]]}}" bindtap="__e">{{''+txt+''}}</view>

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content.data-v-effc7d0c {
+  padding: 20rpx 0 20rpx;
+}
+.content .popule.data-v-effc7d0c {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+.content .popule .popule-content.data-v-effc7d0c {
+  width: 620rpx;
+  margin: 0 auto;
+  margin-top: 70%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: #E9E9F4;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.content .popule .popule-content .popule-title.data-v-effc7d0c {
+  color: #262631;
+  font-size: 36rpx;
+  line-height: 118rpx;
+  border-bottom: 1rpx solid #E4E6F5;
+  text-align: center;
+}
+.content .popule .popule-content .popule-top.data-v-effc7d0c {
+  font-size: 34rpx;
+  color: #262631;
+  margin-bottom: 26rpx;
+  padding: 0 30rpx;
+  font-weight: bold;
+}
+.content .popule .popule-content .popule-cont.data-v-effc7d0c {
+  padding: 0 30rpx;
+  color: #4A4B79;
+  font-size: 26rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #E4E6F5;
+  padding-bottom: 26rpx;
+}
+.content .popule .popule-content .popule-cont text.data-v-effc7d0c {
+  display: block;
+  float: left;
+  width: 80rpx;
+}
+.content .popule .popule-content .popule-cont view.data-v-effc7d0c {
+  float: right;
+  width: 464rpx;
+  word-wrap: break-word;
+}
+.content .popule .popule-content .popule-btn.data-v-effc7d0c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.content .popule .popule-content .popule-btn view.data-v-effc7d0c {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  color: #262631;
+  font-size: 36rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #E9E9F4;
+}
+.content .popule .popule-content .popule-btn view.active.data-v-effc7d0c {
+  background: #8884B7;
+  color: #0F0C39;
+}
+.content .popule .popule-content .popule-btn view.data-v-effc7d0c:last-of-type {
+  background-color: #5631FD;
+  color: #E9E9F4;
+}
+.content .list.data-v-effc7d0c {
+  background-color: #1B164C;
+  margin-bottom: 20rpx;
+}
+.content .list .title.data-v-effc7d0c {
+  color: #E9E9F4;
+  line-height: 104rpx;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}
+.content .list .adddress.data-v-effc7d0c {
+  color: #4A4B79;
+  font-size: 26rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #2B2860;
+  padding: 0 30rpx 18rpx;
+}
+.content .list .adddress text.data-v-effc7d0c {
+  display: block;
+  float: left;
+  width: 80rpx;
+}
+.content .list .adddress view.data-v-effc7d0c {
+  float: right;
+  width: 610rpx;
+  word-wrap: break-word;
+}
+.content .list .btn-list.data-v-effc7d0c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 20rpx;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  text-align: right;
+}
+.content .list .btn-list button.data-v-effc7d0c {
+  width: 140rpx;
+  font-size: 30rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  background: -webkit-linear-gradient(left, #7965E0, #562FE8);
+  background: linear-gradient(to right, #7965E0, #562FE8);
+  color: #E9E9F4;
+  margin-top: 20rpx;
+  margin-left: 80%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.content .list .btn-list button.active.data-v-effc7d0c {
+  background: #8884B7;
+  color: #0F0C39;
+}
+

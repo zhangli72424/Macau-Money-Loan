@@ -1,0 +1,1 @@
+<view class="app-aboutus"><view class="content"><block wx:if="{{getBulletin.title}}"><view class="title">{{getBulletin.title}}</view></block><rich-text class="p" nodes="{{modifiedContent}}"></rich-text></view></view>

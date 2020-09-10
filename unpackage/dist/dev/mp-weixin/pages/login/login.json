@@ -1,0 +1,8 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#211d1e",
+  "usingComponents": {
+    "uni-status-bar": "/components/uni-status-bar/uni-status-bar",
+    "load": "/components/common/load"
+  }
+}

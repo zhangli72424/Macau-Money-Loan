@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#211d1e",
+  "navigationBarTitleText": "我的资产",
+  "usingComponents": {
+    "uni-status-bar": "/components/uni-status-bar/uni-status-bar",
+    "load": "/components/common/load"
+  }
+}

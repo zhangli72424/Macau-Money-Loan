@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#22211E",
+  "navigationBarTitleText": "我的入金",
+  "usingComponents": {
+    "pay-pwd": "/components/pay-pwd/pay-pwd",
+    "load": "/components/common/load",
+    "message": "/components/common/message"
+  }
+}

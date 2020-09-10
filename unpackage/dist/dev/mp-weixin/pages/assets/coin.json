@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#211d1e",
+  "usingComponents": {
+    "vcode": "/components/vcode/vcode",
+    "pay-pwd": "/components/pay-pwd/pay-pwd",
+    "load": "/components/common/load"
+  }
+}

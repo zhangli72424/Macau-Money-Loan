@@ -1,0 +1,218 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+view, text, input {
+  box-sizing: border-box;
+  line-height: 1;
+}
+.over-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hover-transform1 {
+  opacity: .95;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.hover-transform2 {
+  background-color: #f6f6f6;
+}
+.nodata {
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 13px;
+}
+.pagetitle {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+  color: #E9E9F4;
+  font-weight: bold;
+}
+.login-bottom {
+  width: 750rpx;
+  height: 339rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+.login-bottom image {
+  width: 750rpx;
+  height: 339rpx;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+}
+.login-bg {
+  width: 750rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.login-bg image {
+  width: 750rpx;
+  height: 100vh;
+}
+.title {
+  background: #211d1e;
+  color: #E9E9F4;
+}
+.title .title-text {
+  line-height: 78rpx;
+  text-align: center;
+  position: relative;
+  font-size: 36rpx;
+}
+.title .title-text text {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  line-height: 78rpx;
+  display: block;
+  font-size: 26rpx;
+  z-index: 99;
+}
+.app-login .greeting {
+  color: #000000;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+.app-login .greeting .hello {
+  font-size: 30px;
+  margin-bottom: 16rpx;
+  color: #E9E9F4;
+}
+.app-login .greeting .welcome {
+  font-size: 48rpx;
+  margin-top: 100rpx;
+  color: #E9E9F4;
+}
+.app-login .lang {
+  text-align: right;
+  color: #E9E9F4;
+  margin-right: 86rpx;
+  margin-top: 60rpx;
+}
+.app-login .lang .hline {
+  margin: 0 20rpx;
+  color: #929191;
+  font-weight: 200;
+  font-size: 12px;
+}
+.app-login .lang .chs, .app-login .lang .en {
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 14px;
+  color: #606060;
+  display: inline-block;
+  text-align: center;
+  line-height: 60rpx;
+}
+.app-login .lang .chs.active, .app-login .lang .en.active {
+  color: #EEA935;
+  font-weight: bold;
+}
+.app-login .content {
+  width: 690rpx;
+  margin-left: 30rpx;
+  height: 540rpx;
+  padding: 40rpx 30rpx;
+}
+.app-login .content .login-title {
+  font-size: 14px;
+  color: #525252;
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+}
+.app-login .content .li {
+  height: 84rpx;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  color: #E9E9F4;
+  border-bottom: 1rpx solid #929191;
+}
+.app-login .content .li input {
+  height: 84rpx;
+  font-size: 12px;
+  color: #E9E9F4;
+  padding-left: 40rpx;
+}
+.app-login .content .li .iconfont {
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+  width: 80rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  z-index: 5;
+  text-align: center;
+  color: #EEA935;
+}
+.app-login .content .li + .li {
+  margin-top: 30rpx;
+}
+.app-login .content .forget {
+  font-size: 12px;
+  font-weight: bold;
+  color: #EEA935;
+  text-align: right;
+  margin-top: 29rpx;
+  margin-right: 40rpx;
+}
+.app-login .content .btn-wrapper .sell-btn {
+  margin-top: 120rpx;
+  margin: 128rpx 30rpx 0;
+  line-height: 88rpx;
+  height: 88rpx;
+  border-radius: 6rpx;
+  background: #929292;
+  color: #E9E9F4;
+}
+.app-login .content .btn-wrapper .sell-btn.active {
+  background: -webkit-linear-gradient(top, #d4ae6d, #fedf9d);
+  background: linear-gradient(to bottom, #d4ae6d, #fedf9d);
+  color: #212121;
+  box-shadow: 0 0 10rpx rgba(251, 217, 148, 0.2);
+}
+.app-login .goLogin {
+  width: 328rpx;
+  height: 86rpx;
+  color: #EEA935;
+  line-height: 86rpx;
+  text-align: center;
+  font-size: 13px;
+  margin: 60rpx auto;
+}
+

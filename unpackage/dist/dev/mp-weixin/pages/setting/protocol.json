@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "服务协议",
+  "navigationBarBackgroundColor": "#211d1e",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "uni-status-bar": "/components/uni-status-bar/uni-status-bar"
+  }
+}

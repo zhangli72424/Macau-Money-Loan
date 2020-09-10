@@ -1,0 +1,40 @@
+@import './variable.scss';
+view, text, input {
+	box-sizing: border-box;
+	line-height: 1;
+}
+.over-txt {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+@mixin over-txt {
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+// btn按钮 hover-class
+.hover-transform1 {
+	opacity: .95;
+	transform: scale(.95);
+}
+// 列表hover-class
+.hover-transform2 {
+	background-color: $page-bg-color1;
+}
+.nodata {
+	width: 750upx;
+	height: 100upx;
+	line-height: 100upx;
+	text-align: center;
+	color: $text-gray-color1;
+	font-size: 13px;
+}
+.pagetitle {
+	padding: 0 30upx;
+	height: 80upx;
+	line-height: 80upx;
+	font-size: 20px;
+	color: $white;
+	font-weight: bold;
+}

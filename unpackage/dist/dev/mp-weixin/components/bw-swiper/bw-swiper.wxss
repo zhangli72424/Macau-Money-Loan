@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.cardSwiper .swiper-item.data-v-995cc1b4 {
+  width: 86% !important;
+  overflow: initial;
+}
+.swiper-item:nth-child(1).cur.data-v-995cc1b4 {
+  opacity: .8 !important;
+}
+.swiper-item:nth-child(1).curswiper-item.data-v-995cc1b4 {
+  opacity: 0 !important;
+  width: 110%;
+  margin-left: 95%;
+}
+.swiper-item:nth-child(2).cur.data-v-995cc1b4 {
+  opacity: .8 !important;
+}
+.swiper-item:nth-child(2).cur.swiper-item.data-v-995cc1b4:nth-child(3) {
+  opacity: 0 !important;
+  width: 110%;
+  margin-left: 95%;
+}
+.swiper-item:nth-child(2).cur.swiper-item.data-v-995cc1b4:nth-child(1) {
+  opacity: 0 !important;
+  width: 110%;
+  margin-left: -95%;
+}
+.swiper-item:nth-child(3).cur.data-v-995cc1b4 {
+  opacity: .8 !important;
+}
+.swiper-item:nth-child(3).cur.swiper-item.data-v-995cc1b4:nth-child(1) {
+  opacity: 0 !important;
+  width: 110%;
+  margin-left: 95%;
+}
+.swiper-item:nth-child(3).cur.swiper-item.data-v-995cc1b4:nth-child(2) {
+  opacity: 0 !important;
+  width: 110%;
+  margin-left: -95%;
+}
+.cardSwiper .swiper-item view.data-v-995cc1b4 {
+  width: 100%;
+  display: block;
+  height: 100%;
+  border-radius: 10rpx;
+  -webkit-transform: scale(0.9, 0.8);
+          transform: scale(0.9, 0.8);
+  opacity: 0.7;
+  -webkit-transition: all 0.1s ease-in 0s;
+  transition: all 0.1s ease-in 0s;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-left: 8.1%;
+}
+.cardSwiper .cur view.data-v-995cc1b4 {
+  -webkit-transform: initial;
+          transform: initial;
+  opacity: 1;
+  -webkit-transition: all 0.1s ease-in 0s;
+  transition: all 0.1s ease-in 0s;
+}
+.swiper-item view.data-v-995cc1b4 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.swiperText.data-v-995cc1b4 {
+  position: absolute;
+  color: #ffffff;
+  z-index: 2;
+  border-radius: 4rpx;
+  padding: 0 4rpx;
+}
+.screen-swiper image.data-v-995cc1b4 {
+  width: 100%;
+}
+.screen-swiper video.data-v-995cc1b4,
+.swiper-item video.data-v-995cc1b4 {
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+.swiperContent.data-v-995cc1b4 {
+  width: 100%;
+}
+

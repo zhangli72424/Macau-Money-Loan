@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#22211E",
+  "navigationBarTitleText": "余额提现",
+  "usingComponents": {
+    "vcode": "/components/vcode/vcode",
+    "load": "/components/common/load",
+    "message": "/components/common/message"
+  }
+}

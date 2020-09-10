@@ -1,0 +1,607 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/first/first",
+			"style": {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTextStyle": "white", // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+				"navigationBarTitleText": "",
+				"backgroundColor":"#000000"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "首页",
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+		},
+		{
+			"path": "pages/index/pool",
+			"style": {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "矿池数据",
+				"app-plus":{
+					"navigationBarTitleText":"矿池数据",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e"
+				}
+			}
+		}
+        ,{
+			"path" : "pages/assets/assets",
+			"style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "我的资产",
+				"app-plus":{
+					"navigationBarTitleText":"我的资产",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e",
+					"titleNView":false
+				}
+			}
+        }
+        ,{
+            "path" : "pages/new/new",
+            "style" : {
+				"navigationBarTitleText":"新闻中心",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4"
+			}
+        },
+		{
+            "path" : "pages/new/detail",
+            "style" : {
+				"navigationBarTitleText":"详情",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4"
+			}
+        },
+		{
+		    "path" : "pages/register/register",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+		}
+        ,{
+            "path" : "pages/forget/forget",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+        },
+		{
+		    "path" : "pages/assets/recharge",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"充币",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/coin",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"提币",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/transfer",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"划转",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/flash",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"闪付",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/history",
+		    "style" : {
+				"enablePullDownRefresh":true,
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"账单",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/add-address",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"添加地址",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4"
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/address-list",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"app-plus":{
+					"navigationBarTitleText":"地址列表",
+					"navigationBarBackgroundColor":"#211d1e",
+					"navigationBarTextStyle":"#E9E9F4",
+					"titleNView":{
+						"buttons":[{
+							"color":"#5631FD",
+							"colorPressed":"#6f58e4",
+							"float":"right",
+							"fontSize":14,
+							"text":"添加",
+							"background":"rgba(0,0,0,0)"
+						}],
+						"backButton":{
+							"background":"rgba(0,0,0,0)"
+						}
+					}
+				}
+			}
+		},
+		{
+		    "path" : "pages/assets/detail",
+		    "style" : {
+				"navigationBarTitleText":"",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#FFFFFF"
+			}
+		}
+        ,{
+            "path" : "pages/setting/setting",
+            "style" : {
+				"navigationBarTitleText":"设置",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#22211E"
+			}
+        },
+		{
+		    "path" : "pages/setting/modify-email",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "绑定邮箱修改",
+				"app-plus":{
+					"navigationBarTitleText":"绑定邮箱修改",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e"
+				}
+			}
+		},
+		{
+            "path" : "pages/modify-login/modify-login",
+            "style" : {
+				"navigationBarTitleText": "修改登录密码",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4",
+				"app-plus": {
+					// "titleNView": false
+				}
+			}
+        },
+		{
+            "path" : "pages/modify-pwd/modify-pwd",
+            "style" : {
+				"navigationBarTitleText": "修改交易密码",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4",
+				"app-plus": {
+					// "titleNView": false
+				}
+			}
+        },
+		{
+		    "path" : "pages/team/team",
+		    "style" : {
+				"navigationBarTitleText": "我的部门",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4",
+				"app-plus":{
+					"navigationBarTitleText":"",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e",
+					"titleNView":{
+						"type":"transparent",
+						"titleText":"我的部门"
+					}
+				}
+			}
+		}
+        ,
+		{
+            "path" : "pages/invite/advertising",
+            "style" : {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4",
+				"app-plus":{
+					"navigationBarTitleText":"",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e",
+					"titleNView":{
+						"type":"transparent",
+						"titleText":""
+					}
+				}
+			}
+        },
+		{
+            "path" : "pages/bill/bili",
+            "style" : {
+				"navigationBarTitleText": "我的账单",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4",
+				"enablePullDownRefresh":true,
+				"app-plus":{
+					"navigationBarTitleText":"我的账单",
+					"navigationBarTextStyle":"#E9E9F4",
+					"navigationBarBackgroundColor":"#211d1e"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/developing/developing",
+            "style" : {
+            	"navigationBarTitleText": "正在开发中",
+            	"navigationBarBackgroundColor":"#211d1e",
+            	"navigationBarTextStyle":"#E9E9F4",
+            	"app-plus":{
+            		"navigationBarTitleText":"",
+            		"navigationBarTextStyle":"#E9E9F4",
+            		"navigationBarBackgroundColor":"#211d1e",
+            		"titleNView":{
+            			"type":"transparent",
+            			"titleText":"正在开发中"
+            		}
+            	}
+            }
+        },
+		{
+            "path" : "pages/info/info",
+            "style" : {
+            	"navigationBarTitleText": "个人资料",
+            	"navigationBarBackgroundColor":"#211d1e",
+            	"navigationBarTextStyle":"#E9E9F4",
+            	"app-plus":{
+            		"navigationBarTitleText":"",
+            		"navigationBarTextStyle":"#E9E9F4",
+            		"navigationBarBackgroundColor":"#211d1e",
+            		"titleNView":{
+            			"type":"transparent",
+            			"titleText":"个人资料"
+            		}
+            	}
+            }
+        },
+		{
+            "path" : "pages/setting/protocol",
+            "style" : {
+            	"navigationBarTitleText": "服务协议",
+            	"navigationBarBackgroundColor":"#211d1e",
+            	"navigationBarTextStyle":"#E9E9F4",
+            	"app-plus":{
+            		"navigationBarTitleText":"",
+            		"navigationBarTextStyle":"#E9E9F4",
+            		"navigationBarBackgroundColor":"#211d1e",
+            		"titleNView":{
+            			"type":"transparent",
+            			"titleText":"服务协议"
+            		}
+            	}
+            }
+        },
+		{
+            "path" : "pages/new/notice",
+            "style" : {
+            	"navigationBarTitleText": "",
+            	"navigationBarBackgroundColor":"#211d1e",
+            	"navigationBarTextStyle":"#E9E9F4",
+            	"app-plus":{
+            		"navigationBarTitleText":"",
+            		"navigationBarTextStyle":"#E9E9F4",
+            		"navigationBarBackgroundColor":"#211d1e",
+            		"titleNView":{
+            			"type":"transparent",
+            			"titleText":""
+            		}
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/exchang/exchang",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "兑换",
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+        },
+		{
+            "path" : "pages/exchang/details",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "买入",
+				"app-plus":{
+					"type":"transparent",
+					"titleText":"买入",
+					"backButton":{
+						"background":"rgba(0,0,0,0)"
+						
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/investment/investment",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "投资",
+				"app-plus":{
+					"titleNView":false,
+					"type":"transparent",
+					"titleText":"投资",
+					"backButton":{
+						"background":"rgba(0,0,0,0)"
+						
+					}
+				}
+			}
+        },
+		{
+		    "path" : "pages/investment/mining",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "我的投资",
+				"app-plus":{
+					"titleNView":false
+					// "type":"transparent",
+					// "titleText":"我的投资",
+					// "backButton":{
+					// 	"background":"rgba(0,0,0,0)"
+						
+					// }
+				}
+			}
+		}
+        ,{
+            "path" : "pages/quotes/quotes",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText": "行情"
+			}
+        }
+        ,{
+            "path" : "pages/wallet/wallet",
+            "style" : {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTextStyle": "white" ,
+				"app-plus":{
+					"animationType":"slide-out-right",
+					"animationDuration":200,
+					"bounce":"none",
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/person/person",
+            "style" : {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTextStyle": "white" ,
+				"app-plus":{
+					"animationType":"slide-out-right",
+					"animationDuration":200,
+					"bounce":"none",
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/top-up/top-up",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#22211E",
+				"navigationBarTitleText": "充值入金"
+			}
+        }
+        ,{
+            "path" : "pages/balance-withdrawal/balance-withdrawal",
+            "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#22211E",
+				"navigationBarTitleText": "余额提现"
+			}
+        }
+		,{
+		    "path" : "pages/wallet/my-history",
+		    "style" : {
+				"navigationBarTextStyle":"#E9E9F4",
+				"navigationBarBackgroundColor":"#22211E",
+				"navigationBarTitleText": "我的入金"
+			}
+		},
+		{
+			"path": "pages/invest/log",
+			"style": {
+				"navigationBarTitleText": "我的矿机",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/invest/reward",
+			"style": {
+				"navigationBarTitleText": "奖励制度",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/invest/detail",
+			"style": {
+				"navigationBarTitleText": "合约详情",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		// {
+		// 	"path": "pages/invest/invest",
+		// 	"style": {
+		// 		"navigationBarTitleText": "投资",
+		// 		"navigationBarTextStyle": "black",
+		// 		"app-plus": {
+		// 			"bounce":"none",
+		// 			"titleNView": false
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/setting/about",
+			"style": {
+				"navigationBarTitleText":"关于我们",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#22211E"
+			}
+		}
+        ,{
+            "path" : "pages/Allet/Allet",
+            "style" : {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTextStyle": "white" ,
+				"app-plus":{
+					"animationType":"slide-out-right",
+					"animationDuration":200,
+					"bounce":"none",
+					"scrollIndicator":"none"
+				}
+			}
+        },
+		{
+            "path" : "pages/wallet/treasure-court",
+            "style" : {
+				"navigationBarTitleText":"藏宝阁",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#22211E"
+			}
+        },
+		{
+		    "path" : "pages/assets/flash-payment",
+		    "style" : {
+				"navigationBarTitleText":"USDT闪兑",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#22211E"
+			}
+		}
+        ,{
+            "path" : "pages/service/service",
+            "style" : {
+				"navigationBarTitleText":"客服中心",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#22211E"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "余呗支付",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#141413"
+	},
+	"tabBar": {
+		"color": "#8E8E8E",
+		"selectedColor": "#D09C49",
+		"borderStyle": "black",
+		"backgroundColor": "#1A1A18",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/tabbar/tabbar01.png",
+				"selectedIconPath": "static/tabbar/tabbar06.png"
+			},
+			{
+				"pagePath":"pages/Allet/Allet",
+				"text": "资产",
+				"iconPath": "static/tabbar/tabbar03.png",
+				"selectedIconPath": "static/tabbar/tabbar08.png"
+			},
+			{
+				"pagePath":"pages/wallet/wallet",
+				"text": "钱包",
+				"iconPath": "static/tabbar/tabbar02.png",
+				"selectedIconPath": "static/tabbar/tabbar07.png"
+			},
+			{
+				"pagePath": "pages/person/person",
+				"text": "我的",
+				"iconPath": "static/tabbar/tabbar05.png",
+				"selectedIconPath": "static/tabbar/tabbar10.png"
+			}
+		]
+	}
+}

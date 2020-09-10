@@ -1,0 +1,8 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#211d1e",
+  "navigationBarTitleText": "兑换",
+  "usingComponents": {
+    "uni-status-bar": "/components/uni-status-bar/uni-status-bar"
+  }
+}

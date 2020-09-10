@@ -1,0 +1,1 @@
+<view><image class="ethq-index-bg" style="{{('height:'+screenHeight+'px !important;')}}" src="../../static/image/them-bg.gif" lazy-load="{{true}}"></image></view>
