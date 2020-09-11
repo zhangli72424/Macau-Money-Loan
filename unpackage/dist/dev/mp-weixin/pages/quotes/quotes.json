@@ -1,9 +1,0 @@
-{
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#211d1e",
-  "navigationBarTitleText": "行情",
-  "usingComponents": {
-    "market-list": "/components/common/market-list",
-    "load": "/components/common/load"
-  }
-}

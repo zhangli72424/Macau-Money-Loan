@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "关于我们",
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#22211E",
-  "usingComponents": {
-    "message": "/components/common/message"
-  }
-}

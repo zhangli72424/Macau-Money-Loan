@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "navigationBarBackgroundColor": "#211d1e",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "qrcode": "/components/qrcode/qrcode"
-  }
-}

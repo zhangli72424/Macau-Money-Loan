@@ -1,9 +1,0 @@
-{
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#22211E",
-  "navigationBarTitleText": "充值入金",
-  "usingComponents": {
-    "load": "/components/common/load",
-    "message": "/components/common/message"
-  }
-}

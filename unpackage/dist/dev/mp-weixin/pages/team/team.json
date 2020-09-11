@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "我的部门",
-  "navigationBarBackgroundColor": "#211d1e",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "mix-tree": "/components/mix-tree/mix-tree",
-    "load": "/components/common/load"
-  }
-}

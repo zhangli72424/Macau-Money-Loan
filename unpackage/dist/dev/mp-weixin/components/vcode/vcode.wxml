@@ -1,1 +1,0 @@
-<text data-event-opts="{{[['tap',[['handleclick',['$event']]]]]}}" class="{{['data-v-43f6a768',(yzm_state)?'gray':'']}}" bindtap="__e">{{yzmContent||i18n.get_vcode}}</text>

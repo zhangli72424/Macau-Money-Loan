@@ -1,1 +1,0 @@
-<view><block wx:if="{{showLoadings}}"><load vue-id="651146d4-1" bind:__l="__l"></load></block></view>

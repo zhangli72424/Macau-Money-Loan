@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "藏宝阁",
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#22211E",
-  "usingComponents": {
-    "load": "/components/common/load"
-  }
-}

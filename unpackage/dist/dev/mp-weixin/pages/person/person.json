@@ -1,9 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "u-navbar": "/node-modules/uview-ui/components/u-navbar/u-navbar",
-    "uni-status-bar": "/components/uni-status-bar/uni-status-bar",
-    "load": "/components/common/load"
-  }
-}
