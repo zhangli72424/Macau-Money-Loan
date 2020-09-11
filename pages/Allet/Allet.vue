@@ -19,6 +19,7 @@
 					</view>
 				</view>
 			</view>
+		
 			<!-- <view class="wallet-top-nav">
 				<view class="wallet-top-nav-l">
 					<text>已收益</text>
@@ -31,9 +32,71 @@
 			</view> -->
 			<view class="assets">
 				<view class="assets_image">
-					<image src="../../static/image/allet_image.png" mode=""></image>
+					<image src="../../static/image/allet_image.png" mode="image"></image>
+					<!-- <view class="assets_content">
+						<view class="assets-title assets-public">
+							<view class="view">
+								<view>总资产</view>
+								<view class="">账户余额</view>
+							</view>
+						</view>
+						<view class="assets_num assets-public">
+							<view class="view">
+								<view>总资产</view>
+								<view class="">账户余额</view>
+							</view>
+						</view>
+						<view class="licai assets-public">
+							<view class="view">
+								<view>理财资产</view>
+								<view class="">理财收益</view>
+							</view>
+						</view>
+						<view class="assets-button assets-public">
+							<view class="view">
+								<view class="Recharge btn">充值</view>
+								<view class="Withdraw-money btn">提币</view>
+							</view>
+						</view>
+					</view> -->
+					<view class="assets-content">
+						<view class="assets-left">
+							<view class="assets-color assets-title">总资产</view>
+							<view class="assets-color assets_num">2543232</view>
+							<view class="profit">理财资产</view>
+							<view class="Recharge btn">充值</view>
+						</view>
+						<view class="assets-right">
+							<view class="assets-color assets-title">账户余额</view>
+							<view class="assets-color assets_num">123442</view>
+							<view class="profit">理财收益</view>
+							<view class="Withdraw-money btn">提币</view>
+						</view>
+					</view>
+					
 				</view>
-				<view class=""></view>
+			</view>
+		</view>
+		<view class="main">
+			<!-- <view class="mai-title">
+				<view class="">理财记录</view>
+				<view class="">收益记录</view>
+				<view class="all">
+					<text>查看全部</text>
+					<image src="../../static/image/back-01.png"></image>
+				</view>
+			</view> -->
+			<view class="main-content">
+				<view class="main-item">
+					<view class="main-item-top">
+						<text></text>
+						<text></text>
+					</view>
+					<view class="main-item-bottom">
+						<text></text>
+						<text></text> 
+					</view>
+				</view>
 			</view>
 		</view>
 		<view class="nav">
@@ -531,11 +594,15 @@
 </script>
 
 <style lang="scss" scoped>
+	@flex {
+		justify-content:space-between;
+		align-items:center;
+	}
 	@import '@/common/scss/variable.scss';
 	.nav-title{
-		padding-top: 65rpx;
+		padding-top: 35rpx;
 		height: auto;
-		width: 750rpx;
+		width: 600rpx;
 		overflow: hidden;
 		.nav-title-box{
 			margin: 0 32rpx;
@@ -552,6 +619,7 @@
 				image{
 					width: 14rpx;
 					height: 24rpx;
+					magrin-left:10rpx;
 				}
 			}
 		}
@@ -560,14 +628,111 @@
 	.assets{
 		width:750rpx;
 		height: auto;
-		padding: 30rpx;
+		margin: 30rpx;
 		.assets_image{
 			width: 690rpx;
 			height: 332rpx;
+			position: relative;
 			image{
 				width: 100%;
 				height:100%;
 				border-radius: 10rpx;
+			}
+			.assets-content{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				display: flex;
+				top:0;
+				left:0;
+				padding-top:61rpx;
+				.assets-left{
+					width: 50%;
+					height: 100%;
+					text-align: left;
+					padding-left: 45rpx;
+				}
+				.assets-right{
+					width: 50%;
+					height: 100%;
+					text-align: right;
+					padding-right: 49rpx;
+				}
+				.btn{
+					color: #181617;
+					font-size: 26rpx;
+					width:193rpx;
+					height: 50rpx;
+					// background-image: url(../../static/image/assets-button.png);
+					background-size: cover;
+					text-align: center;
+				}
+				.assets_num{
+					font-size: 48rpx;
+					color: #EEA935;
+				}
+				.assets-title{
+					font-size: 22rpx;
+					color: #EEA935;
+				}
+				.profit{
+					color: #FFBC49;
+					font-size: 24rpx;
+				}
+			}
+			// .assets_content{
+			// 	overflow: visible;
+			// 	width: 100%;
+			// 	height: auto;
+			// 	// padding:61rpx 45rpx 44rpx 49rpx;
+			// 	padding-top:61rpx ;
+			// 	padding-left: 49rpx;
+			// 	padding-bottom: 44rpx;
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// 	.assets-public{
+			// 		.view{
+			// 			display: flex;
+			// 			justify-content:space-between;
+			// 			align-items:center;
+			// 		}
+			// 	}
+			// 	.assets-title{
+			// 		color: #EEA935;
+			// 		font-size: 22rpx;
+			// 	}
+			// 	.assets_num{
+			// 		color: #EEA935;
+			// 		font-size: 48rpx;
+			// 	}
+			// 	.licai{
+			// 		color: #FFBC49;
+			// 		font-size: 24rpx;
+			// 	}
+			// 	.Recharge{
+			// 		color: #181617;
+			// 		font-size: 26rpx;
+			// 		.btn{
+			// 			width:193rpx;
+			// 			height: 50rpx;
+			// 			background-image: url(../../static/image/assets-button.png);
+			// 			background-size: cover;
+			// 		}
+			// 	}
+			// }
+		}
+	}
+	.main{
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		.mai-title{
+			.all{
+				image{
+					width: 14rpx;
+					height: 24rpx;
+				}
 			}
 		}
 	}

@@ -57,10 +57,18 @@ view.data-v-5919f6b0, text.data-v-5919f6b0, input.data-v-5919f6b0 {
   color: #E9E9F4;
   font-weight: bold;
 }
+@flex {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
 .nav-title.data-v-5919f6b0 {
-  padding-top: 65rpx;
+  padding-top: 35rpx;
   height: auto;
-  width: 750rpx;
+  width: 600rpx;
   overflow: hidden;
 }
 .nav-title .nav-title-box.data-v-5919f6b0 {
@@ -80,20 +88,74 @@ view.data-v-5919f6b0, text.data-v-5919f6b0, input.data-v-5919f6b0 {
 .nav-title .nav-title-box .mi image.data-v-5919f6b0 {
   width: 14rpx;
   height: 24rpx;
+  magrin-left: 10rpx;
 }
 .assets.data-v-5919f6b0 {
   width: 750rpx;
   height: auto;
-  padding: 30rpx;
+  margin: 30rpx;
 }
 .assets .assets_image.data-v-5919f6b0 {
   width: 690rpx;
   height: 332rpx;
+  position: relative;
 }
 .assets .assets_image image.data-v-5919f6b0 {
   width: 100%;
   height: 100%;
   border-radius: 10rpx;
+}
+.assets .assets_image .assets-content.data-v-5919f6b0 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  top: 0;
+  left: 0;
+  padding-top: 61rpx;
+}
+.assets .assets_image .assets-content .assets-left.data-v-5919f6b0 {
+  width: 50%;
+  height: 100%;
+  text-align: left;
+  padding-left: 45rpx;
+}
+.assets .assets_image .assets-content .assets-right.data-v-5919f6b0 {
+  width: 50%;
+  height: 100%;
+  text-align: right;
+  padding-right: 49rpx;
+}
+.assets .assets_image .assets-content .btn.data-v-5919f6b0 {
+  color: #181617;
+  font-size: 26rpx;
+  width: 193rpx;
+  height: 50rpx;
+  background-size: cover;
+  text-align: center;
+}
+.assets .assets_image .assets-content .assets_num.data-v-5919f6b0 {
+  font-size: 48rpx;
+  color: #EEA935;
+}
+.assets .assets_image .assets-content .assets-title.data-v-5919f6b0 {
+  font-size: 22rpx;
+  color: #EEA935;
+}
+.assets .assets_image .assets-content .profit.data-v-5919f6b0 {
+  color: #FFBC49;
+  font-size: 24rpx;
+}
+.main.data-v-5919f6b0 {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.main .mai-title .all image.data-v-5919f6b0 {
+  width: 14rpx;
+  height: 24rpx;
 }
 .popule-mask.data-v-5919f6b0 {
   position: fixed;
