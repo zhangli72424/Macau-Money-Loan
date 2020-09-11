@@ -250,9 +250,9 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
       this.change();
     } },
 
-  methods: _objectSpread({
+  methods: _objectSpread(_objectSpread({
     selectTab: function selectTab(val) {this.tabIndex = val;} },
-  (0, _vuex.mapMutations)(['setCoin']), {
+  (0, _vuex.mapMutations)(['setCoin'])), {}, {
     close: function close(val) {
       if (val == 1) {
         this.isshows = false;

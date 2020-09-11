@@ -221,8 +221,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 
     };
   },
-  methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['setCoin']), {
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setCoin'])), {}, {
     select: function select(item) {
       this.setCoin(item);
       setTimeout(function () {

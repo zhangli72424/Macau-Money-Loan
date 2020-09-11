@@ -387,9 +387,9 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     this.getShopList();
     this.getWallet();
   },
-  methods: _objectSpread({},
+  methods: _objectSpread(_objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)([
-  'setPlan']), {
+  'setPlan'])), {}, {
 
     getCheckB: function getCheckB() {
       var _url = '/api/Wallet/check_b';
@@ -565,7 +565,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
         _this4.showLoad = false;
       });
     } },
-  (0, _vuex.mapMutations)(['setBulletin']), {
+  (0, _vuex.mapMutations)(['setBulletin'])), {}, {
     imgJump: function imgJump(val) {
       if (val == '/pages/assets/recharge') {
         uni.navigateTo({

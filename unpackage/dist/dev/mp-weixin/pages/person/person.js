@@ -225,8 +225,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     this.getCheckB();
     console.log(this.getFirstTeam);
   },
-  methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['setFirstTeam']), {
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setFirstTeam'])), {}, {
     getCheckB: function getCheckB() {
       var _url = '/api/Wallet/check_b';
       (0, _util.fetch)(_url, {}, 'POST').then(function (res) {

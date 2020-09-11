@@ -304,8 +304,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
       this.change();
     } },
 
-  methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['setCoin']), {
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setCoin'])), {}, {
     close: function close(val) {
       if (val == 1) {
         this.isshows = false;

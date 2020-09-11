@@ -231,8 +231,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     this._getTeamInfo();
     this.isCheck = false;
   },
-  methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['setFirstTeam']), {
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setFirstTeam'])), {}, {
     _getTeam: function _getTeam() {var _this = this;
       if (this.getFirstTeam) return;
       this.setFirstTeam(true);

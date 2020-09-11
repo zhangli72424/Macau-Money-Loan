@@ -116,8 +116,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     console.log('App Hide');
     // this.exit();
   },
-  methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['setLoginInfo']), {
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['setLoginInfo'])), {}, {
     exit: function exit() {
       this.setLoginInfo('');
     } }) };exports.default = _default;

@@ -300,7 +300,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     this.getType();
     this.getCheckB();
   },
-  methods: _objectSpread({
+  methods: _objectSpread(_objectSpread({
     getCheckB: function getCheckB() {
       var _url = '/api/Wallet/check_b';
       (0, _util.fetch)(_url, {}, 'POST').then(function (res) {
@@ -381,7 +381,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 
       }
     } },
-  (0, _vuex.mapMutations)(['setPlan']), {
+  (0, _vuex.mapMutations)(['setPlan'])), {}, {
     getShopList: function getShopList() {var _this3 = this;
       (0, _util.fetch)('/api/Shop/shop_list', {}, 'post').
       then(function (res) {

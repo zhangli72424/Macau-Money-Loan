@@ -36,9 +36,10 @@
         ,{
 			"path" : "pages/assets/assets",
 			"style" : {
-				"navigationBarTextStyle":"#E9E9F4",
-				"navigationBarBackgroundColor":"#211d1e",
-				"navigationBarTitleText": "我的资产",
+				"navigationStyle":"custom",
+				// "navigationBarTextStyle":"#E9E9F4",
+				// "navigationBarBackgroundColor":"#211d1e",
+				// "navigationBarTitleText": "我的资产",
 				"app-plus":{
 					"navigationBarTitleText":"我的资产",
 					"navigationBarTextStyle":"#E9E9F4",
@@ -569,7 +570,7 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "余呗支付",
+		"navigationBarTitleText": "澳门钱贷",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#141413"
 	},
