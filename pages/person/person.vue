@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :is-back="false" :is-fixed="false" :background="background">
+		<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 			<view class="index-top">
 				个人中心
 			</view>

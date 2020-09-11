@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _util = __webpack_require__(/*! @/common/js/util.js */ 26);var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-status-bar/uni-status-bar.vue */ 429));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Load = function Load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _util = __webpack_require__(/*! @/common/js/util.js */ 26);var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-status-bar/uni-status-bar.vue */ 428));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Load = function Load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {

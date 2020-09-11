@@ -32,7 +32,7 @@
 			</view> -->
 			<view class="assets">
 				<view class="assets_image">
-					<image src="../../static/image/allet_image.png" mode="image"></image>
+					<image src="../../static/image/allet_image.png" class="bg-class" mode="widthFix" lazy-load></image>
 					<!-- <view class="assets_content">
 						<view class="assets-title assets-public">
 							<view class="view">
@@ -63,103 +63,59 @@
 						<view class="assets-left">
 							<view class="assets-color assets-title">总资产</view>
 							<view class="assets-color assets_num">2543232</view>
-							<view class="profit">理财资产</view>
-							<view class="Recharge btn">充值</view>
 						</view>
 						<view class="assets-right">
 							<view class="assets-color assets-title">账户余额</view>
 							<view class="assets-color assets_num">123442</view>
-							<view class="profit">理财收益</view>
-							<view class="Withdraw-money btn">提币</view>
-						</view>
-					</view>
-					
-				</view>
-			</view>
-		</view>
-		<view class="main">
-			<!-- <view class="mai-title">
-				<view class="">理财记录</view>
-				<view class="">收益记录</view>
-				<view class="all">
-					<text>查看全部</text>
-					<image src="../../static/image/back-01.png"></image>
-				</view>
-			</view> -->
-			<view class="main-content">
-				<view class="main-item">
-					<view class="main-item-top">
-						<text></text>
-						<text></text>
-					</view>
-					<view class="main-item-bottom">
-						<text></text>
-						<text></text> 
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="nav">
-			<!-- //0驳回 1审核中 2收益中 3已出局 
-			0 持有入金  1正在审核中  2已提现  3 已驳回
-			-->
-			
-			<view class="nav-item" :class="{'active':navIndex==0}" @tap.stop="selectNav('0')">收益中</view>
-			<view class="nav-item" :class="{'active':navIndex==1}" @tap.stop="selectNav('1')">已出局</view>
-		</view>
-		<view class="content">
-			<template v-if="list.length>0">
-				<block v-for="(item,index) in list" :key="index">
-					<view class="list">
-						<view class="list-top">
-							<view class="list-top-l">{{item.title}} </view>
-							<!-- 0 持有入金  1正在审核中  2已结束  3 已驳回 -->
-							<view class="list-top-l">
-								{{navIndex==3?item.content:((navIndex==0?'投入':'撤单')+'金额'+(item.num | formatParsefloat))}}
-								</view>
-						</view>
-						<view class="list-top-tlt">
-							<text>
-							{{item.status==2?'收益中':item.status==3?'已出局':'持有入金'}}
-							</text>
 							
-							<text>{{item.time}}</text>
-						</view>
-						<view class="list-bottom">
-							<view class="list-bottom-item">
-								<view>{{item.total | formatParsefloat}}</view>
-								<text>累计收益（STD）</text>
-							</view>
-							<view class="list-bottom-item">
-								<view>{{item.sl}}</view>
-								<text>每日算力</text>
-							</view>
-							<view class="list-bottom-item">
-								<view>{{item.all_day}}</view>
-								<text>已收益天数</text>
-							</view>
-							<view class="list-bottom-item">
-								<view>{{item.max | formatParsefloat}}</view>
-								<text>总收益（STD）</text>
-							</view>
-						</view>
-						<!-- num  投资额
-						all_day 已收益天数
-						total 已收益
-						max 可收益 -->
-						<view class="list-bottom-but" v-if="navIndex==0">
-						<!-- <view class="list-bottom-but"> -->
-							<!-- <button type="default" hover-class="active">收益明细</button> -->
-							<button type="default" @tap.stop="over(item)" hover-class="active">撤销</button>
 						</view>
 					</view>
-				</block>
-			</template>
-			<template v-else>
-				<view class="no-data">{{i18n.nodata}}</view>
-			</template>
-			
+					<view class="assets-content-center">
+						<view class="profit">理财资产 345.88 usdt</view>
+						<view class="profit">理财收益 345.88 usdt</view>
+					</view>
+					<view class="assets-content-bottom">
+						<view class="Withdraw-money btn">充币</view>
+						<view class="Withdraw-money btn">提币</view>
+					</view>
+				</view>
+			</view>
 		</view>
+		<view class="nav-content">
+			<view class="nav-content-l">
+				<view :class="{'active':navIndex==0}" @tap.stop="selectNav('0')">理财记录</view>
+				<view :class="{'active':navIndex==1}" @tap.stop="selectNav('1')">收益记录</view>
+			</view>
+			<view class="nav-content-r">
+				<text>查看全部</text>
+				<i class="icon iconfont iconxiangyou1"></i>
+			</view>
+		</view>
+		
+		<view class="list-content">
+			<view class="list">
+				<view class="list-l">
+					<view>购买至尊套餐X5</view>
+					<text>2019/09/10  16:49:09</text>
+				</view>
+				<view class="list-r">
+					<view>75000.00</view>
+					<text>金额(USDT）</text>
+				</view>
+			</view>
+			<view class="list">
+				<view class="list-l">
+					<view>购买至尊套餐X5</view>
+					<text>2019/09/10  16:49:09</text>
+				</view>
+				<view class="list-r">
+					<view>75000.00</view>
+					<text>金额(USDT）</text>
+				</view>
+			</view>
+		</view>
+		
+		
 		<message 
 		:showCancel="showCancelX"
 		:shows="showMsg" 
@@ -281,8 +237,8 @@
 			this.page=1;
 			this.isCheck = false;
 			this.list = []
-			this.getHistory();
-			this.get_wallet();
+			// this.getHistory();
+			// this.get_wallet();
 			// this.getCheckB();
 			uni.showTabBar({
 				success: (res) => {
@@ -538,6 +494,7 @@
 			},
 			selectNav(index){
 				this.navIndex = index;
+				return
 				 //0驳回 1审核中 2收益中 3已出局
 				//0 持有入金  1正在审核中  2已结束  3 已驳回
 				this.list = []
@@ -633,15 +590,16 @@
 			width: 690rpx;
 			height: 332rpx;
 			position: relative;
-			image{
-				width: 100%;
-				height:100%;
-				border-radius: 10rpx;
+			.bg-class{
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: -1;
+				width: 690rpx;
+				height:332rpx;
+				// border-radius: 10rpx;
 			}
 			.assets-content{
-				width: 100%;
-				height: 100%;
-				position: absolute;
 				display: flex;
 				top:0;
 				left:0;
@@ -658,15 +616,6 @@
 					text-align: right;
 					padding-right: 49rpx;
 				}
-				.btn{
-					color: #181617;
-					font-size: 26rpx;
-					width:193rpx;
-					height: 50rpx;
-					// background-image: url(../../static/image/assets-button.png);
-					background-size: cover;
-					text-align: center;
-				}
 				.assets_num{
 					font-size: 48rpx;
 					color: #EEA935;
@@ -674,53 +623,45 @@
 				.assets-title{
 					font-size: 22rpx;
 					color: #EEA935;
+					margin-bottom: 20rpx;
 				}
 				.profit{
 					color: #FFBC49;
-					font-size: 24rpx;
+					font-size: 48rpx;
 				}
 			}
-			// .assets_content{
-			// 	overflow: visible;
-			// 	width: 100%;
-			// 	height: auto;
-			// 	// padding:61rpx 45rpx 44rpx 49rpx;
-			// 	padding-top:61rpx ;
-			// 	padding-left: 49rpx;
-			// 	padding-bottom: 44rpx;
-			// 	position: absolute;
-			// 	top: 0;
-			// 	left: 0;
-			// 	.assets-public{
-			// 		.view{
-			// 			display: flex;
-			// 			justify-content:space-between;
-			// 			align-items:center;
-			// 		}
-			// 	}
-			// 	.assets-title{
-			// 		color: #EEA935;
-			// 		font-size: 22rpx;
-			// 	}
-			// 	.assets_num{
-			// 		color: #EEA935;
-			// 		font-size: 48rpx;
-			// 	}
-			// 	.licai{
-			// 		color: #FFBC49;
-			// 		font-size: 24rpx;
-			// 	}
-			// 	.Recharge{
-			// 		color: #181617;
-			// 		font-size: 26rpx;
-			// 		.btn{
-			// 			width:193rpx;
-			// 			height: 50rpx;
-			// 			background-image: url(../../static/image/assets-button.png);
-			// 			background-size: cover;
-			// 		}
-			// 	}
-			// }
+			.assets-content-center{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding-top: 48rpx;
+				.profit{
+					color: #FFBC49;
+					font-size: 24rpx;
+					&:first-of-type{
+						margin-right: 84rpx;
+					}
+				}
+			}
+			.assets-content-bottom{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 34rpx 0 44rpx;
+				.btn{
+					background: linear-gradient(to top, #DCB87C , #CE9A55);
+					width: 193rpx;
+					height: 50rpx;
+					line-height: 50rpx;
+					text-align: center;
+					border-radius: 6rpx;
+					font-size: 26rpx;
+					color: #181617;
+					&:first-of-type{
+						margin-right: 81rpx;
+					}
+				}
+			}
 		}
 	}
 	.main{
@@ -891,121 +832,69 @@
 		color: #AAAFBD;
 		padding-top: 40rpx;
 	}
-	.nav{	 
-		width: 750rpx;
+	.nav-content{
 		display: flex;
 		align-items: center;
-		.nav-item{
-			flex: 1;
-			text-align: center;
-			line-height: 110rpx;
-			color: #AAAFBD;
-			font-size: 30rpx;
-			&.active{
-				color: $theme-color;
-				position: relative;
-				&::after{
-					content: '';
-					position: absolute;
-					background: $theme-color;
-					width: 68rpx;
-					height: 6rpx;
-					left: 50%;
-					transform: translateX(-50%);
-					bottom: 4rpx;
+		justify-content: space-between;
+		padding: 46rpx 30rpx;
+		.nav-content-l{
+			display: flex;
+			align-items: center;
+			view{
+				font-size: 30rpx;
+				color: #747470;
+				margin-right: 33rpx;
+				&.active{
+					color: #EEA935;
+					font-size: 48rpx;
+					font-weight: bold;
 				}
 			}
 		}
+		.nav-content-r{
+			display: flex;
+			align-items: center;
+			color: #747470;
+			text{
+				font-size: 30rpx;
+			}
+		}
 	}
-	.content{
-		margin-top: 30rpx;
+	.list-content{
 		padding: 0 30rpx;
 		.list{
-			background: $theme-dark-color;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background: #22211E;
+			padding: 61rpx 30rpx 53rpx;
 			border-radius: 20rpx;
-			margin-bottom: 30rpx;
-			.list-top{
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				line-height: 80rpx;
-				padding: 0 30rpx;
+			margin-bottom: 20rpx;
+			.list-l{
 				view{
-					font-size: 30rpx;
-					color:$white;
-					&:first-of-type{
-						font-size: 36rpx;
-						color:$theme-color;
-					}
+					font-size: 36rpx;
+					font-weight: bold;
+					margin-bottom: 30rpx;
 				}
-			}
-			.list-top-tlt{
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				border-bottom: 1rpx solid #929191;
-				line-height: 50rpx;
-				padding: 0 30rpx 20rpx;
 				text{
-					font-size: 22rpx;
-					line-height: 50rpx;
-					color: #A6A7AB;
+					font-size: 24rpx;
+					color: #77746A;
 				}
 			}
-			.list-bottom{
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 40rpx 30rpx 60rpx;
-				.list-bottom-item{
-					text-align: center;
-					&:first-of-type{
-						text-align: left;
-					}
-					&:last-of-type{
-						text-align: right;
-					}
-					view{
-						font-size: 32rpx;
-						color: $white;
-						margin-bottom: 32rpx;
-					}
-					text{
-						color: #A6A7AB;
-						font-size: 26rpx;
-					}
+			.list-r{
+				text-align: right;
+				view{
+					font-size: 36rpx;
+					font-weight: bold;
+					margin-bottom: 30rpx;
 				}
-			}
-			.list-bottom-but{
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding-bottom: 40rpx;
-				button{
-					width: 200rpx;
-					line-height: 60rpx;
-					height: 60rpx;
-					padding: 0;
-					font-size: 30rpx;
-					&.active{
-						opacity: .95;
-						transform: scale(.95);
-					}
-					&::after{
-						display: none;
-					}
-					&:first-of-type{
-						background: rgba(0,0,0,0);
-						color: $theme-color;
-						border: 1rpx solid $theme-color;
-						margin-right: 72rpx;
-					}
-					&:last-of-type{
-						background: linear-gradient(to right, #FFD272, #FFB21E);
-						color: $white;
-					}
+				text{
+					font-size: 24rpx;
+					color: #77746A;
 				}
 			}
 		}
 	}
+	
+	
 </style>

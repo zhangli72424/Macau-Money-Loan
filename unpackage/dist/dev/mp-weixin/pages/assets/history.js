@@ -193,7 +193,7 @@ var _util = __webpack_require__(/*! @/common/js/util.js */ 26);function ownKeys(
 //
 //
 //
-var timer;var load = function load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { load: load }, data: function data() {return { index: 0, showload: false, page: 1, curInfo: {}, list: [], isCheck: false };}, computed: _objectSpread({ i18n: function i18n() {return this.$t('message');} }, (0, _vuex.mapGetters)(['getRequestUrl', 'getLangType', 'getLogin', 'getLoginInfo'])), onLoad: function onLoad(e) {(0, _util.forceUpdate)(this.getLangType);this.curInfo = JSON.parse(e.item);console.log(this.curInfo);
+var timer;var load = function load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { load: load }, data: function data() {return { index: 0, showload: false, page: 1, curInfo: {}, list: [], isCheck: false };}, computed: _objectSpread({ i18n: function i18n() {return this.$t('message');} }, (0, _vuex.mapGetters)(['getRequestUrl', 'getLangType', 'getLogin', 'getLoginInfo'])), onLoad: function onLoad(e) {(0, _util.forceUpdate)(this.getLangType);this.curInfo = JSON.parse(e.item);console.log(this.curInfo);
     this.page = 1;
     this.list = [];
     this.getHistory();

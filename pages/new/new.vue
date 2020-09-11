@@ -2,7 +2,7 @@
 	<view class="app-community">
 		<!-- <view class="pagetitle">市场</view> -->
 		<view class="community-content">
-			<u-navbar :is-back="false" :is-fixed="false" :background="background">
+			<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 				<view class="tabs">
 					<view class="tab" @tap="clickTip(0)"><text :class="{active: currentTab}">社区动态</text></view>
 					<view class="tab" @tap="clickTip(1)"><text :class="{active: !currentTab}">快讯</text></view>

@@ -150,7 +150,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8); //
 //
 //
 //
-var marketList = function marketList() {__webpack_require__.e(/*! require.ensure | components/common/market-list */ "components/common/market-list").then((function () {return resolve(__webpack_require__(/*! @/components/common/market-list.vue */ 521));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var load = function load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { marketList: marketList, load: load }, data: function data() {return { showload: false,
+var marketList = function marketList() {__webpack_require__.e(/*! require.ensure | components/common/market-list */ "components/common/market-list").then((function () {return resolve(__webpack_require__(/*! @/components/common/market-list.vue */ 520));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var load = function load() {__webpack_require__.e(/*! require.ensure | components/common/load */ "components/common/load").then((function () {return resolve(__webpack_require__(/*! @/components/common/load.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { marketList: marketList, load: load }, data: function data() {return { showload: false,
       list: [] };
 
   },

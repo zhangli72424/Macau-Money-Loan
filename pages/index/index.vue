@@ -27,18 +27,15 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		
-<!-- 		<view class="index-nav-content">
-			<view class="index-nav-l">
-				<image src="../../static/image/app03.png" mode="widthFix" @tap.stop="buy" lazy-load></image>
-			</view>
-			<view class="index-nav-r">
-				<image src="../../static/image/app04.png" @tap.stop="imgJump('/pages/balance-withdrawal/balance-withdrawal')" mode="widthFix" lazy-load></image>
-				<image src="../../static/image/app05.png" @tap.stop="imgJump('/pages/invite/advertising')" mode="widthFix" lazy-load></image>
-			</view>
-		</view> -->
-		
-		
+
+
+
+
+
+		<view class="index-banners">
+			
+	<!-- 		<view class="index-banners-c" @tap.stop="buy" style="background-image: url(../../static/image/index00.png);">
+			</view> -->
 		
 		
 		<view class="nav-list">
@@ -54,25 +51,55 @@
 		
 		
 		
-		
-		
-		<view class="index-banners">
-			<view class="index-banners-t">
-				<image src="../../static/image/title1.png" mode="widthFix" lazy-load></image>
-			</view>
-			<view class="index-banners-c" @tap.stop="buy" style="background-image: url(../../static/image/index00.png);">
-				<!-- <view class="index-banners-c-l">
-					<text>{{curInfo.title}}</text>
-					<view class="index-banners-c-l-c">
-						<view>{{curInfo.freeze}} STD</view>
-						<text>随时提现 不设期限</text>
-					</view>
+		<view class="index-banners-t">
+			<image src="../../static/image/title1.png" mode="widthFix" lazy-load></image>
+		</view>
+		<view class="list-banner">
+			<view class="list-banner-title">
+				<view>
+					尊享套餐
 				</view>
-				<view class="index-banners-c-r" hover-class="active" @tap.stop="buy">
-					立即入金
-				</view> -->
+				<text>
+					倒计时  36:56:20
+				</text>
+			</view>
+			<view class="list-banner-center">
+				<view class="list-banner-center-l">
+					<view class="font-text">
+						500.00
+					</view>
+					<text class="line-l">售价(USDT)</text>
+					<view class="progress-class">
+						<u-line-progress 
+						height="20" 
+						inactive-color="#A66B08"
+						active-color="#FFBA44" 
+						:show-percent="false"
+						:percent="70"></u-line-progress>
+					</view>
+					<view class="line-bottom">
+						<text>已抢购567份</text>
+						<text>剩余433份</text>
+					</view>
+					
+				</view>
+				<view class="list-banner-center-r">
+					<u-button 
+					:custom-style="customStyle0"
+					:hair-line="false"
+					@click="buy"
+					:ripple="true" ripple-bg-color="#909399">
+						马上购买
+					</u-button>
+				</view>
 			</view>
 		</view>
+		
+		
+		</view>
+		
+		
+		
 		
 		
 		<view class="index-banners no-tips" style="margin: 0;"> 
@@ -158,6 +185,18 @@
 	export default {
 		data() {
 			return {
+				customStyle0:{
+					width:"170rpx",
+					height:"130rpx",
+					borderRadius:"20rpx",
+					color:"#333333",
+					padding:"20rpx 30rpx",
+					fontWeight:"bold",
+					background:"linear-gradient(45deg, #b1883c, #ffd985, #cfab67)",
+					border:"none",
+					fontSize:"40rpx",
+					"line-height":"40rpx"
+				},
 				showMesss:false,
 				meg:'',
 				showpwd:false,
@@ -246,7 +285,7 @@
 			_updataTabBar(this.getTextArr,this.getLangType);
 			this.getNotice();
 			this.getLun();
-			this.getShopList();
+			// this.getShopList();
 			this.getWallet();
 		},
 		methods: {
@@ -792,4 +831,73 @@
 			}
 		}
 	}
+	.list-banner{
+		margin: 0 30rpx;
+		background: linear-gradient(to right, #B98C57, #C5A87F);
+		border-radius: 20rpx;
+		.list-banner-title{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 30rpx;
+			color: $white;
+			border-bottom: 1rpx solid #EBC89C;
+			view{
+				line-height: 82rpx;
+				font-size: 40rpx;
+				font-weight: bold;
+				background: linear-gradient(to bottom, #FFBD4A, #EBC891);
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+			text{
+				font-size: 26rpx;
+			}
+		}
+		.list-banner-center{
+			padding: 42rpx 30rpx 28rpx;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.list-banner-center-l{
+				padding-right: 100rpx;
+				flex: 1;
+				.font-text{
+					font-size: 64rpx;
+					font-weight: bold;
+				}
+				.progress-class{
+					width: 100%;
+				}
+				.line-l{
+					color: #DAC39E;
+					font-size: 24rpx;
+					padding: 22rpx 0 28rpx;
+					display: block;
+				}
+				.line-bottom{
+					padding-top: 10rpx;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					text{
+						font-size: 22rpx;
+						color: #FFD388;
+						&:last-of-type{
+							color: #A66B08;
+						}
+					}
+				}
+			}
+			.list-banner-center-r{
+				width: 170rpx;
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	
 </style>
