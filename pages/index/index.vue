@@ -103,12 +103,12 @@
 						<view>收益天数：</view>
 					</view>
 				</view>
-				<view class="popule-content-li">
-					<text>实际支付价格</text>
+				<view class="popule-content-li" style="padding-top: 20rpx;">
+					<text style="font-size: 26rpx;">实际支付价格</text>
 					<view class="popule-content-li-n">{{curInfo.freeze*num}} {{std_info.title_en}}</view>
 				</view>
 				<view class="popule-content-li">
-					<text>选择购买份数</text>
+					<text style="color: #77746A; font-size: 26rpx;">选择购买份数</text>
 					<view class="popule-content-li-num">
 						<button type="default" 
 						:disabled="num==1"
@@ -118,14 +118,14 @@
 						<button type="default" hover-class="active" @tap.stop="add">+</button>
 					</view>
 				</view>
-				<view class="popule-content-li">
-					<text>STD可用余额:</text>
+				<view class="popule-content-li popule-content-li-list">
+					<text>账户余额:</text>
 					<view class="popule-content-li-n">{{std_info.balance}}</view>
 				</view>
 				
 				<view class="popule-content-btn">
 					<button type="default" hover-class="active" @tap.stop="cancle">取消</button>
-					<button type="default" hover-class="active" @tap.stop="confrim">下单</button>
+					<button type="default" hover-class="active" @tap.stop="confrim">支付</button>
 				</view>
 			</view>
 		</view>
@@ -521,12 +521,17 @@
 			.Package-details{
 				border-bottom: 1rpx solid #373633;
 				padding-bottom: 38rpx;
+				padding: 20rpx 0;
 				.Package-details-title{
 					color: #77746A;
-					font-szie:36rpx;
+					font-size:36rpx;
+					// font-weight: 600;
 				}
 				.Package-details-text{
-					padding:  20rpx 0;
+					padding-bottom: 20rpx;
+					&:first-child{
+						padding-top: 0;
+					}
 					view{
 						margin-top: 19rpx;
 						fotn-size: 26rpx;
@@ -534,11 +539,20 @@
 					}
 				}
 			}
+			.popule-content-li-list{
+				padding: 25rpx 0;
+				view , text{
+					font-size: 26rpx !important;
+					color: #E9E9F4 !important;
+					margin: 0 !important;
+				}
+			}
 			.popule-content-li{
 				padding-top: 50rpx;
 				text{
 					color: #77746A;
-					font-size: 26rpx;
+					// font-weight: bold;
+					font-size: 30rpx;
 				}
 				.popule-content-li-n{
 					font-size: 46rpx;
@@ -555,7 +569,6 @@
 					border: 1rpx solid #929191;
 					button{
 						width: 80rpx;
-						line-height: 73rpx;
 						height: 80rpx;
 						text-align: center;
 						background: transparent;
@@ -563,6 +576,7 @@
 						color: #EEA935;
 						font-size: 60rpx;
 						padding: 0;
+						line-height: 73rpx;
 						&:first-of-type{
 							border-right: 1rpx solid #929191;
 						}
@@ -586,7 +600,7 @@
 				
 			}
 			.popule-content-btn{
-				padding-top: 77rpx;
+				padding-top: 49rpx;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -597,13 +611,15 @@
 					width: 240rpx;
 					height: 72rpx;
 					font-size: 34rpx;
+					line-height: 76rpx;
 					&:first-of-type{
 						background-color: #B6A58D;
 						color: #E9E9F4;
 					}
 					&:last-of-type{
 						background-image: url(../../static/image/zhifu.png);
-						border-radius: 3rpx;
+						border-radius: 11rpx;
+						color: #E9E9F4;
 						// background: linear-gradient(to left, #d4ae6d, #fedf9d);;
 						// color: $white;
 					}
