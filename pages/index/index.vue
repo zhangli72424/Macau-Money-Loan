@@ -54,46 +54,73 @@
 		<view class="index-banners-t">
 			<image src="../../static/image/title1.png" mode="widthFix" lazy-load></image>
 		</view>
-		<view class="list-banner">
-			<view class="list-banner-title">
-				<view>
-					尊享套餐
+		
+		<block v-for="(item,index) in list" :key="index">
+			<view class="list-banner">
+				<view class="list-banner-title">
+					<view>
+						尊享套餐
+					</view>
+					<text>
+						倒计时  36:56:20
+					</text>
 				</view>
-				<text>
-					倒计时  36:56:20
-				</text>
+				<view class="list-banner-center">
+					<view class="list-banner-center-l">
+						<view class="font-text">
+							500.00
+						</view>
+						<text class="line-l">售价(USDT)</text>
+						<template v-if="item.type==1">
+							<view class="progress-class">
+								<u-line-progress 
+								height="20" 
+								inactive-color="#A66B08"
+								active-color="#FFBA44" 
+								:show-percent="false"
+								:percent="item.progress"></u-line-progress>
+							</view>
+							<view class="line-bottom">
+								<text>已抢购567份</text>
+								<text>剩余433份</text>
+							</view>
+						</template>
+						<template v-if="item.type==2">
+							<view class="line-bottom line-bottom-line">
+								<text>限额 7500U</text>
+								<text>剩余 500U</text>
+							</view>
+						</template>
+					</view>
+					<view class="list-banner-center-r">
+						<template v-if="item.type==1">
+							<u-button
+							:custom-style="customStyle0"
+							:hair-line="false"
+							@click="buy"
+							:ripple="true" ripple-bg-color="#909399">
+								马上购买
+							</u-button>
+						</template>
+						<template v-if="item.type==2">
+							<view class="circle-progress ">
+								<u-circle-progress
+								bg-color="transparent"
+								inactive-color="#d3b17b"
+								active-color="#ffc869" :percent="item.progress">
+										<view class="u-progress-content">
+											<view class="u-progress-dot">已兑换</view>
+											<text class='u-progress-info'>{{item.progress}}%</text>
+										</view>
+									</u-circle-progress>
+							</view>
+							
+						</template>
+					</view>
+				</view>
 			</view>
-			<view class="list-banner-center">
-				<view class="list-banner-center-l">
-					<view class="font-text">
-						500.00
-					</view>
-					<text class="line-l">售价(USDT)</text>
-					<view class="progress-class">
-						<u-line-progress 
-						height="20" 
-						inactive-color="#A66B08"
-						active-color="#FFBA44" 
-						:show-percent="false"
-						:percent="70"></u-line-progress>
-					</view>
-					<view class="line-bottom">
-						<text>已抢购567份</text>
-						<text>剩余433份</text>
-					</view>
-					
-				</view>
-				<view class="list-banner-center-r">
-					<u-button 
-					:custom-style="customStyle0"
-					:hair-line="false"
-					@click="buy"
-					:ripple="true" ripple-bg-color="#909399">
-						马上购买
-					</u-button>
-				</view>
-			</view>
-		</view>
+		</block>
+		
 		
 		
 		</view>
@@ -215,7 +242,8 @@
 				usdt_info:{},
 				std_info:{},
 				isok:false,
-				nopaypwd:false
+				nopaypwd:false,
+				list:[]
 			}
 		},
 		computed:{
@@ -235,6 +263,33 @@
 			uniStatusBar,Load,bwSwiper,payPwd,Message
 		},
 		onShow() {
+			this.list = [
+				{
+					title:"至尊套餐",
+					sr_time:1600681181,
+					type:1,
+					price:'500.00',
+					buy_stock:'200',
+					stock:'2000',
+					lower_num:100
+				},
+				{
+					title:"至尊套餐",
+					sr_time:1600681181,
+					type:2,
+					price:'500.00',
+					buy_stock:'500',
+					stock:'2000',
+					lower_num:100
+				}
+			]
+			this.list.forEach((item,index)=>{
+				this.list[index].sy_num = Number(item.stock)-Number(item.buy_stock);
+				this.list[index].progress = parseInt(Number(item.buy_stock)/Number(item.stock)*10000)/100
+			})
+			
+			console.log(this.list);
+			
 			this.showMesss = false;
 			this.isok = false;
 			this.nopaypwd = false
@@ -832,7 +887,7 @@
 		}
 	}
 	.list-banner{
-		margin: 0 30rpx;
+		margin: 0 30rpx 30rpx;
 		background: linear-gradient(to right, #B98C57, #C5A87F);
 		border-radius: 20rpx;
 		.list-banner-title{
@@ -887,10 +942,52 @@
 							color: #A66B08;
 						}
 					}
+					&.line-bottom-line{
+						display:block;
+						// justify-content: center;
+						text{
+							color: #FFD388;
+							&:first-of-type{
+								padding-right: 15rpx;
+								border-right: #f5e7bd 1rpx solid ;
+							}
+							&:last-of-type{
+								margin-left: 15rpx;
+							}
+						}
+						// position: relative;
+						// &::after{
+						// 	position: absolute;
+						// 	content:"";
+						// 	width: 2rpx;
+						// 	height: 26rpx;
+						// 	background: #f5e7bd;
+						// 	left: 48%;
+						// 	top: 70%;
+						// 	transform: translate(-50%,-50%);
+						// }
+					}
 				}
 			}
 			.list-banner-center-r{
 				width: 170rpx;
+				.circle-progress{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					.u-progress-content{
+						text-align: center;
+						.u-progress-dot{
+							font-size: 27rpx;
+							color: #f5e7bd;
+						}
+						.u-progress-info{
+							font-size: 48rpx;
+							color: #FFC869;
+							font-weight: bold;
+						}
+					}
+				}
 			}
 		}
 		
