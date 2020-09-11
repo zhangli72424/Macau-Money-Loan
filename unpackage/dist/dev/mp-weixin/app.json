@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/first/first",
     "pages/index/index",
     "pages/index/pool",
     "pages/assets/assets",
@@ -45,12 +44,12 @@
     "pages/Allet/Allet",
     "pages/wallet/treasure-court",
     "pages/assets/flash-payment",
-    "pages/service/service"
+    "pages/service/service",
+    "pages/consulting/consulting"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "余呗支付",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#141413"
   },
@@ -73,8 +72,8 @@
         "selectedIconPath": "static/tabbar/tabbar08.png"
       },
       {
-        "pagePath": "pages/wallet/wallet",
-        "text": "钱包",
+        "pagePath": "pages/consulting/consulting",
+        "text": "咨询",
         "iconPath": "static/tabbar/tabbar02.png",
         "selectedIconPath": "static/tabbar/tabbar07.png"
       },

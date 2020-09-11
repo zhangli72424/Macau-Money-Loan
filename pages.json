@@ -1,20 +1,22 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/first/first",
-			"style": {
-				"navigationStyle": "custom" ,// 隐藏系统导航栏
-				"navigationBarTextStyle": "white", // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
-				"navigationBarTitleText": "",
-				"backgroundColor":"#000000"
-			}
-		},
+		// {
+		// 	"path": "pages/first/first",
+		// 	"style": {
+		// 		"navigationStyle": "custom" ,// 隐藏系统导航栏
+		// 		"navigationBarTextStyle": "white", // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+		// 		"navigationBarTitleText": "",
+		// 		"backgroundColor":"#000000"
+		// 	}
+		// },
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTextStyle":"#E9E9F4",
-				"navigationBarBackgroundColor":"#211d1e",
-				"navigationBarTitleText": "首页",
+				"navigationStyle":"custom",
+				"navigationBarTextStyle":"white",
+				// "navigationBarTextStyle":"#E9E9F4",
+				// "navigationBarBackgroundColor":"#211d1e",
+				// "navigationBarTitleText": "首页",
 				"app-plus":{
 					"titleNView":false
 				}
@@ -557,19 +559,32 @@
 				"navigationBarTextStyle":"white",
 				"navigationBarBackgroundColor":"#22211E"
 			}
-		}
-        ,{
+		},
+		{
             "path" : "pages/service/service",
             "style" : {
 				"navigationBarTitleText":"客服中心",
 				"navigationBarTextStyle":"white",
 				"navigationBarBackgroundColor":"#22211E"
 			}
-        }
+        },
+		{
+			"path" : "pages/consulting/consulting",
+			"style" : {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTextStyle": "white" ,
+				"app-plus":{
+					"animationType":"slide-out-right",
+					"animationDuration":200,
+					"bounce":"none",
+					"scrollIndicator":"none"
+				}
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "余呗支付",
+		// "navigationBarTitleText": "余呗支付",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#141413"
 	},
@@ -591,8 +606,8 @@
 				"selectedIconPath": "static/tabbar/tabbar08.png"
 			},
 			{
-				"pagePath":"pages/wallet/wallet",
-				"text": "钱包",
+				"pagePath":"pages/consulting/consulting",
+				"text": "咨询",
 				"iconPath": "static/tabbar/tabbar02.png",
 				"selectedIconPath": "static/tabbar/tabbar07.png"
 			},

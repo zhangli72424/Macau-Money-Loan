@@ -8,11 +8,14 @@
 		</view> -->
 		
 		
-		
-		<bw-swiper :swiperList="bannerList" :autoplay="true"></bw-swiper>
+		<!-- 轮播图 -->
+		<!-- <bw-swiper :swiperList="bannerList" :autoplay="true"></bw-swiper> -->
+		<view class="banner">
+			<image src="../../static/image/banner.png"></image>
+		</view>
 		<view class="bulletin">
 			<view class="bulletin-img">
-				<image src="../../static/image/bulletin-img.png" mode="widthFix" lazy-load></image>
+				<image src="../../static/image/xinxi.png" mode="widthFix" lazy-load></image>
 			</view>
 			<swiper circular="true" vertical="true" :autoplay="true" :interval="3000" :duration="1000">
 				<swiper-item v-for="(item, index) in news" :key="index">
@@ -55,7 +58,7 @@
 		
 		<view class="index-banners">
 			<view class="index-banners-t">
-				<image src="../../static/image/index-b-t-01.png" mode="widthFix" lazy-load></image>
+				<image src="../../static/image/title1.png" mode="widthFix" lazy-load></image>
 			</view>
 			<view class="index-banners-c" @tap.stop="buy" style="background-image: url(../../static/image/index00.png);">
 				<!-- <view class="index-banners-c-l">
@@ -72,9 +75,9 @@
 		</view>
 		
 		
-		<view class="index-banners no-tips"> 
+		<view class="index-banners no-tips" style="margin: 0;"> 
 			<view class="index-banners-t">
-				<image src="../../static/image/index-b-t-02.png" mode="widthFix" lazy-load></image>
+				<image src="../../static/image/title2.png" mode="widthFix" lazy-load></image>
 			</view>
 		</view>
 		
@@ -92,6 +95,14 @@
 					<view>{{curInfo.title}}</view>
 					<text>售价：{{curInfo.freeze}}</text>
 				</view>
+				<view class="Package-details">
+					<view class="Package-details-title">至尊套餐详情</view>
+					<view class="Package-details-text">
+						<view>日收益：</view>
+						<view>总收益：</view>
+						<view>收益天数：</view>
+					</view>
+				</view>
 				<view class="popule-content-li">
 					<text>实际支付价格</text>
 					<view class="popule-content-li-n">{{curInfo.freeze*num}} {{std_info.title_en}}</view>
@@ -103,7 +114,7 @@
 						:disabled="num==1"
 						hover-class="active"
 						 @tap.stop="lower">-</button>
-						<input type="text" placeholder="请输入数量" v-model="num">
+						<input type="text" placeholder="请输入数量" v-model="num" style="font-size: 40rpx;">
 						<button type="default" hover-class="active" @tap.stop="add">+</button>
 					</view>
 				</view>
@@ -197,39 +208,35 @@
 			})
 			this.navList = [
 				{
-					img:'../../static/image/nav01.png',
-					title:'充值USDT',
+					img:'../../static/image/nav_1.png',
 					url:'/pages/assets/recharge'
 				},
 				{
-					img:'../../static/image/nav02.png',
-					title:'USDT提现',
+					img:'../../static/image/nav_2.png',
 					url:'/pages/assets/coin'
 				},
 				{
-					img:'../../static/image/nav03.png',
-					title:'USDT闪兑',
+					img:'../../static/image/nav_3.png',
 					url:'/pages/assets/flash-payment'
 				},
 				{
-					img:'../../static/image/nav04.png',
-					title:'邀请好友',
+					img:'../../static/image/nav_4.png',
 					url:'/pages/invite/advertising'
 				},
 			]
 			this.imgList = [
 				{
-					img:'../../static/image/index01.png',
+					img:'../../static/image/index_1.png',
 					// url:'/pages/index/pool'
 					url:'/pages/developing/developing'
 				},
 				{
-					img:'../../static/image/index02.png',
+					img:'../../static/image/index2.png',
 					// url:'/pages/investment/investment'
 					url:'/pages/developing/developing'
 				},
 				{
-					img:'../../static/image/index03.png',
+					img:'../../static/image/index_3.png',
 					// url:'/pages/investment/investment'
 					url:'/pages/developing/developing'
 				}
@@ -471,7 +478,15 @@
 
 <style scoped lang="scss">
 	@import '@/common/scss/variable.scss';
-	
+	.banner{
+		width: 100%;
+		height: 400rpx;
+		image{
+			width:100%;
+			height: 100%;
+			background-size: cover;
+		}
+	}
 	.popule-mask{
 		position: fixed;
 		left: 0;
@@ -491,25 +506,44 @@
 			border-top-right-radius: 20rpx;
 			padding: 60rpx;
 			.popule-content-title{
-				border-bottom: 1rpx solid #929191;
+				border-bottom: 1rpx solid #373633;
 				padding-bottom: 38rpx;
 				view{
 					font-size: 36rpx;
 					margin-bottom: 25rpx;
+					color: #E9E9F4;
 				}
 				text{
 					font-size: 26rpx;
+					color: #EEA935;
+				}
+			}
+			.Package-details{
+				border-bottom: 1rpx solid #373633;
+				padding-bottom: 38rpx;
+				.Package-details-title{
+					color: #77746A;
+					font-szie:36rpx;
+				}
+				.Package-details-text{
+					padding:  20rpx 0;
+					view{
+						margin-top: 19rpx;
+						fotn-size: 26rpx;
+						color: #E9E9F4;
+					}
 				}
 			}
 			.popule-content-li{
 				padding-top: 50rpx;
 				text{
-					color: #929191;
+					color: #77746A;
 					font-size: 26rpx;
 				}
 				.popule-content-li-n{
 					font-size: 46rpx;
 					margin-top: 28rpx;
+					color: #E9E9F4;
 				}
 				.popule-content-li-num{
 					margin-top: 20rpx;
@@ -521,12 +555,14 @@
 					border: 1rpx solid #929191;
 					button{
 						width: 80rpx;
-						line-height: 80rpx;
+						line-height: 73rpx;
 						height: 80rpx;
 						text-align: center;
-						color: #929191;
 						background: transparent;
 						border-radius: 0;
+						color: #EEA935;
+						font-size: 60rpx;
+						padding: 0;
 						&:first-of-type{
 							border-right: 1rpx solid #929191;
 						}
@@ -554,17 +590,22 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				color: #E9E9F4;
+				font-size: 34rpx;
 				button{
 					border-radius: 8rpx;
 					width: 240rpx;
+					height: 72rpx;
 					font-size: 34rpx;
 					&:first-of-type{
-						background-color: #929191;
+						background-color: #B6A58D;
 						color: #E9E9F4;
 					}
 					&:last-of-type{
-						background: linear-gradient(to left, #d4ae6d, #fedf9d);;
-						color: $white;
+						background-image: url(../../static/image/zhifu.png);
+						border-radius: 3rpx;
+						// background: linear-gradient(to left, #d4ae6d, #fedf9d);;
+						// color: $white;
 					}
 					&.active{
 						opacity: .95;
@@ -600,9 +641,9 @@
 				// height: 74upx;
 				flex: 1;
 				.swiper-item {
-					font-size: 30upx;
-					line-height: 34upx;
-					color: #FEFEFE;
+					font-size: 24upx;
+					line-height: 31upx;
+					color: #D7A144;
 					view{
 						line-height: 50upx;
 					}
@@ -630,8 +671,8 @@
 				flex: 1;
 				text-align: center;
 				image{
-					width: 86rpx;
-					height: 97rpx;
+					width:135rpx;
+					height:135rpx;
 					flex-shrink: 0;
 				}
 				view{
@@ -641,18 +682,18 @@
 			}
 		}
 		.index-banners{
-			margin: 60rpx 30rpx 0;
+			// margin: 60rpx 30rpx 0;
 			// border-top: 1upx solid #3C393A;
 			&.no-tips{
 				border-top: none;
 			}
 			.index-banners-t{
-				width: 195rpx;
-				height: 46rpx;
+				width: 750rpx;
+				height:65rpx;
 				margin: 46rpx auto 33rpx;
 				image{
-					width: 195rpx;
-					height: 46rpx;
+					width: 750rpx;
+					height:65rpx;
 					flex-shrink: 0;
 				}
 			}
@@ -666,6 +707,7 @@
 				align-items: center;
 				justify-content: space-between;
 				padding: 0 30rpx;
+				margin: 46rpx auto 33rpx;
 				.index-banners-c-l{
 					text{
 						color: #a5a5a5;

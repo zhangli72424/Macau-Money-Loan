@@ -269,7 +269,8 @@ export default {
 	account_: "账号",
 	nickname: "昵称",
 	
-	
+	// 咨询
+	Consulting: "咨询",
 	
 	//划转
 	Transfer:'划转',

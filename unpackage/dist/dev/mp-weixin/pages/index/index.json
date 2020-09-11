@@ -1,12 +1,11 @@
 {
+  "navigationStyle": "custom",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#211d1e",
-  "navigationBarTitleText": "首页",
   "usingComponents": {
-    "bw-swiper": "/components/bw-swiper/bw-swiper",
     "pay-pwd": "/components/pay-pwd/pay-pwd",
     "uni-status-bar": "/components/uni-status-bar/uni-status-bar",
     "load": "/components/common/load",
+    "bw-swiper": "/components/bw-swiper/bw-swiper",
     "message": "/components/common/message"
   }
 }
