@@ -1972,8 +1972,8 @@ store;exports.default = _default;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
   // requestUrl: "http://eakcs.blockcoinchipsup.com",
-  // requestUrl: "http://116.204.169.72",
   requestUrl: "http://61.111.129.5",
+  // requestUrl: "http://aomen.wantengex.com",
   incode: uni.getStorageSync('code') || { code: 86, name: "中国" },
   lang_type: uni.getStorageSync('lang') || 'chs',
   area: uni.getStorageSync('area') || {},

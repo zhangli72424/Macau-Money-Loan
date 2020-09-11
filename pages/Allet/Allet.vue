@@ -4,13 +4,22 @@
 			 <!-- #ifdef APP-PLUS -->
 			 <uni-status-bar bgcolor="transparent"></uni-status-bar>
 			 <!-- #endif -->
-			<view class="wallet-top-t">
+			<!-- <view class="wallet-top-t">
 				<text>{{cur.title_en}} 投资额</text>
 				<view class="">
 					{{lsitcur.num?(lsitcur.num | formatParsefloat):'0'}}
 				</view>
+			</view> -->
+			<view class="nav-title">
+				<view class="nav-title-box">
+					<view class="Allet">资产</view>
+					<view class="mi">
+						<text>我的理财</text>
+						<image src="../../static/image/back.png"></image>
+					</view>
+				</view>
 			</view>
-			<view class="wallet-top-nav">
+			<!-- <view class="wallet-top-nav">
 				<view class="wallet-top-nav-l">
 					<text>已收益</text>
 					<view>{{lsitcur.total?lsitcur.total:0}}</view>
@@ -19,6 +28,12 @@
 					<text>可收益</text>
 					<view>{{lsitcur.total?lsitcur.max:0}}</view>
 				</view>
+			</view> -->
+			<view class="assets">
+				<view class="assets_image">
+					<image src="../../static/image/allet_image.png" mode=""></image>
+				</view>
+				<view class=""></view>
 			</view>
 		</view>
 		<view class="nav">
@@ -517,6 +532,45 @@
 
 <style lang="scss" scoped>
 	@import '@/common/scss/variable.scss';
+	.nav-title{
+		padding-top: 65rpx;
+		height: auto;
+		width: 750rpx;
+		overflow: hidden;
+		.nav-title-box{
+			margin: 0 32rpx;
+			.Allet{
+				float: left;
+				font-size: 40rpx;
+				color: #FFFFFF;
+			}
+			.mi{
+				float: right;
+				font-size: 26rpx;
+				color: #EEA935;
+				position: relative;
+				image{
+					width: 14rpx;
+					height: 24rpx;
+				}
+			}
+		}
+			
+	}
+	.assets{
+		width:750rpx;
+		height: auto;
+		padding: 30rpx;
+		.assets_image{
+			width: 690rpx;
+			height: 332rpx;
+			image{
+				width: 100%;
+				height:100%;
+				border-radius: 10rpx;
+			}
+		}
+	}
 	.popule-mask{
 		position: fixed;
 		left: 0;
@@ -623,7 +677,7 @@
 		}
 	}
 	.wallet-top{
-		background: linear-gradient(to bottom,#FFE09F,#D3AD6D);
+		// background: linear-gradient(to bottom,#FFE09F,#D3AD6D);
 		text-align: center;
 		padding: 27rpx 0 0;
 		.wallet-top-t{
