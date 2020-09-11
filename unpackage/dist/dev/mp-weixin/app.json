@@ -68,14 +68,14 @@
       {
         "pagePath": "pages/Allet/Allet",
         "text": "资产",
-        "iconPath": "static/tabbar/tabbar03.png",
-        "selectedIconPath": "static/tabbar/tabbar08.png"
-      },
-      {
-        "pagePath": "pages/consulting/consulting",
-        "text": "咨询",
         "iconPath": "static/tabbar/tabbar02.png",
         "selectedIconPath": "static/tabbar/tabbar07.png"
+      },
+      {
+        "pagePath": "pages/new/new",
+        "text": "资讯",
+        "iconPath": "static/tabbar/tabbar03.png",
+        "selectedIconPath": "static/tabbar/tabbar08.png"
       },
       {
         "pagePath": "pages/person/person",

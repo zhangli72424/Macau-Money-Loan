@@ -57,6 +57,39 @@ view.data-v-64ae9394, text.data-v-64ae9394, input.data-v-64ae9394 {
   color: #E9E9F4;
   font-weight: bold;
 }
+view.data-v-64ae9394, text.data-v-64ae9394, input.data-v-64ae9394 {
+  box-sizing: border-box;
+  line-height: 1;
+}
+.over-txt.data-v-64ae9394 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hover-transform1.data-v-64ae9394 {
+  opacity: .95;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.hover-transform2.data-v-64ae9394 {
+  background-color: #f6f6f6;
+}
+.nodata.data-v-64ae9394 {
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 13px;
+}
+.pagetitle.data-v-64ae9394 {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+  color: #E9E9F4;
+  font-weight: bold;
+}
 .uni-navbar--fixed.data-v-64ae9394 {
   position: fixed;
   left: 0;

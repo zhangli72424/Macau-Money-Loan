@@ -57,6 +57,39 @@ view, text, input {
   color: #E9E9F4;
   font-weight: bold;
 }
+view, text, input {
+  box-sizing: border-box;
+  line-height: 1;
+}
+.over-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hover-transform1 {
+  opacity: .95;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.hover-transform2 {
+  background-color: #f6f6f6;
+}
+.nodata {
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 13px;
+}
+.pagetitle {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+  color: #E9E9F4;
+  font-weight: bold;
+}
 .app-login .greeting {
   color: #E9E9F4;
   margin-left: 30rpx;

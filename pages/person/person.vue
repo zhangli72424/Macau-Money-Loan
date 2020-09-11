@@ -1,28 +1,51 @@
 <template>
 	<view>
+		<u-navbar :is-back="false" :is-fixed="false" :background="background">
+			<view class="index-top">
+				个人中心
+			</view>
+		</u-navbar>
 		<view class="person-top">
-			 <!-- #ifdef APP-PLUS -->
-			 <uni-status-bar bgcolor="transparent"></uni-status-bar>
-			 <!-- #endif -->
+		<image src="../../static/image/index-to.png" mode="widthFix" lazy-load class="person-top-bg"></image>
 			<view class="person-top-t">
 				<image :src="user_img" mode="widthFix" lazy-load></image>
 				<view class="person-name">
-					{{name}}
+					<view class="">
+						{{name}}
+					</view>
+					<text>邀请码:HY5671</text>
 				</view>
-				<text>{{user_info.name}}</text>
-				
 			</view>
+			
+			<view class="person-bottom">
+				<view class="person-bottom-item">
+					<view>500</view>
+					<text>总资产(usdt)</text>
+				</view>
+				<view class="person-bottom-item">
+					<view>500</view>
+					<text>账户余额(usdt)</text>
+				</view>
+				<view class="person-bottom-item">
+					<view>500</view>
+					<text>累积收益(usdt)</text>
+				</view>
+			</view>
+			
 		</view>
-		
-		<view class="person-bg-img">
-			<image src="../../static/image/mine-bg-01.png" mode="widthFix" lazy-load></image>
-		</view>
+
 		
 		<view class="person-content">
 			<block v-for="(item,index) in navList" :key="index">
 				<view class="person-li" hover-class="active" @tap.stop="jump(item.url)">
-					<image :src="item.image" mode="widthFix" lazy-load></image>
-					<view>{{item.title}}</view>
+					<view class="person-li-l">
+						<image :src="item.image" mode="widthFix" lazy-load></image>
+						<view>{{item.title}}</view>
+					</view>
+					<view class="person-li-r">
+						<text>{{item.tips}}</text>
+						<i class="icon iconfont iconxiangyou1"></i>
+					</view>
 				</view>
 			</block>
 		</view>
@@ -57,30 +80,43 @@
 				user_img:'',
 				navList:[],
 				name:'',
-				user_info:{}
+				user_info:{},
+				background:{
+					background:'#141413'
+				},
+				zd_type:{}
 			};
 		},
 		onLoad(){
 			this.navList = [
 				{
+					title:'我的理财',
+					image:require('../../static/image/p1.png'),
+					url:'/pages/invite/advertising',
+					tips:'查理财 看收益'
+				},
+				{
 					title:'邀请好友',
 					image:require('../../static/image/invite.png'),
-					url:'/pages/invite/advertising'
+					url:'/pages/invite/advertising',
+					tips:'邀请好友一起赚钱'
 				},
 				{
-					title:'团队业绩',
-					image:require('../../static/image/team.png'),
-					url:'/pages/team/team'
+					title:'我的账单',
+					image:require('../../static/image/p2.png'),
+					url:'/pages/bill/bili',
+					tips:'查账单 看流水'
 				},
 				{
-					title:'个人设置',
-					image:require('../../static/image/mine.png'),
+					title:'我的团队',
+					image:require('../../static/image/p3.png'),
+					url:'/pages/team/team',
+					tips:'查看团队成员'
+				},
+				{
+					title:'系统设置',
+					image:require('../../static/image/p4.png'),
 					url:'/pages/setting/setting'
-				},
-				{
-					title:'关于我们',
-					image:require('../../static/image/time.png'),
-					url:'/pages/setting/about'
 				}
 			]
 		},
@@ -88,19 +124,19 @@
 			this.name = this.getLoginInfo.email
 			this.setFirstTeam(false)
 			this.getIndex();
-			this.getCheckB()
+
 			console.log(this.getFirstTeam);
 		},
 		methods:{
 			...mapMutations(['setFirstTeam']),
-			getCheckB(){
-				let _url = '/api/Wallet/check_b';
-				fetch(_url,{},'POST').then(res=>{
-					
-				})
-			},
 			jump(url){
 				if(url){
+					if(url=='/pages/bill/bili'){
+						if(this.zd_type){
+							pageto(`/pages/bill/bili?tab=${JSON.stringify(this.zd_type)}`);
+						}
+						return
+					}
 					pageto(url)
 				}
 			},
@@ -110,6 +146,7 @@
 						if(res.data.code==1){
 							let info = res.data.data
 							this.user_info = info
+							this.zd_type  = res.data.data.zd_type
 							this.user_img = require(`../../static/image/avatar.png`)
 						}
 					})
@@ -120,13 +157,12 @@
 		}
 	}
 </script>
-<style>
-	page{
-		background: #212121 !important;
-	}
-</style>
 <style lang="scss" scoped>
 	@import '@/common/scss/variable.scss';
+	.index-top{
+		font-size: 40rpx;
+		padding: 34rpx 0 36rpx 30rpx;
+	}
 	.person-bg-img{
 		position: fixed;
 		left: 0;
@@ -142,53 +178,107 @@
 	.person-top{
 		// background: linear-gradient(to right,#FFE09F,#D3AD6D);
 		text-align: center;
-		padding: 75rpx 0 90rpx;
+		padding: 38rpx 35rpx 0;
+		margin: 0 30rpx;
+		// background: linear-gradient(to right, #937552, #ECD0A7);
+		border-radius: 10rpx;
+		position: relative;
+		.person-top-bg{
+			position: absolute;
+			width: 690rpx;
+			height: 350rpx;
+			flex-shrink: 0;
+			z-index: -1;
+			left: 0;
+			top: 0;
+		}
 		.person-top-t{
-			padding: 0 0 28rpx;
+			display: flex;
+			align-items: center;
+			padding-bottom: 40rpx;
 			image{
-				width: 170rpx;
-				height: 170rpx;
-				border-radius: 85rpx; 
+				width: 100rpx;
+				height: 100rpx;
+				border-radius: 50rpx; 
 				flex-shrink: 0;
+				margin-right: 10rpx;
 			}
-			text{
-				font-size: 20rpx;
-				padding: 8rpx 20rpx;
-				background: #C5A668;
-				border-radius: 20rpx;
+			.person-name{
+				text{
+					font-size: 20rpx;
+					// padding: 8rpx 20rpx;
+					// background: #C5A668;
+					// border-radius: 20rpx;
+				}
+				view{
+					font-size: 40rpx;
+					font-weight: bold;
+					margin-bottom: 14rpx;
+				}
 			}
-			view{
-				font-size: 48rpx;
-				margin-top: 18rpx;
+		}
+		.person-bottom{
+			border-top: 1rpx solid #ECDDC3;
+			display: flex;
+			align-items: center;
+			padding: 54rpx 0 45rpx;
+			.person-bottom-item{
+				flex: 1;
+				text-align: center;
+				view{
+					font-size: 40rpx;
+					color: $white;
+					margin-bottom: 20rpx;
+				}
+				text{
+					font-size: 20rpx;
+					color: #e0d8cd;
+				}
 			}
 		}
 	}
 	.person-content{
-		background: $theme-dark-color;
-		border-top-left-radius: 40rpx;
-		border-top-right-radius: 40rpx;
-		margin-top: -50rpx;
+		// background: $theme-dark-color;
+		padding-top: 54rpx;
 		.person-li{
 			padding-left: 30rpx;
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
+			background: #22211E;
+			margin-bottom: 17rpx;
 			&.active{
 				background: #2a2929;
 			}
-			image{
-				width: 60rpx;
-				height: 60rpx;
-				flex-shrink: 0;
-				margin-right: 30rpx;
+			.person-li-l{
+				display: flex;
+				align-items: center;
+				image{
+					width: 60rpx;
+					height: 60rpx;
+					flex-shrink: 0;
+					margin-right: 17rpx;
+				}
+				view{
+					color: $white;
+					flex: 1;
+					line-height: 100rpx;
+					font-size: 30rpx;
+				}
+				
 			}
-			view{
-				color: $theme-color;
-				flex: 1;
-				line-height: 130rpx;
-				border-bottom: 1upx solid #525050;
-				font-size: 34rpx;
+			.person-li-r{
+				display: flex;
+				align-items: center;
+				color: #747470;
+				padding-right: 30rpx;
+				text{
+					font-size: 22rpx;
+				}
+				.icon{
+					
+				}
 			}
-			
 		}
 	}
 	

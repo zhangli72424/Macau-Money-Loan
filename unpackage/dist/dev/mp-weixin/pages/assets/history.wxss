@@ -24,6 +24,39 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+view.data-v-a9e9c27e, text.data-v-a9e9c27e, input.data-v-a9e9c27e {
+  box-sizing: border-box;
+  line-height: 1;
+}
+.over-txt.data-v-a9e9c27e {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hover-transform1.data-v-a9e9c27e {
+  opacity: .95;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.hover-transform2.data-v-a9e9c27e {
+  background-color: #f6f6f6;
+}
+.nodata.data-v-a9e9c27e {
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 13px;
+}
+.pagetitle.data-v-a9e9c27e {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+  color: #E9E9F4;
+  font-weight: bold;
+}
 .no-data.data-v-a9e9c27e {
   margin-top: 130rpx;
   text-align: center;

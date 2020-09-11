@@ -200,7 +200,7 @@
 			this.isok = false;
 			this.nopaypwd = false
 			this.showpopule = false;
-			this.getCheckB();
+			// this.getCheckB();
 			uni.showTabBar({
 				success: (res) => {
 					

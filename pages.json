@@ -1,4 +1,7 @@
 {
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		// {
 		// 	"path": "pages/first/first",
@@ -64,9 +67,14 @@
         ,{
             "path" : "pages/new/new",
             "style" : {
-				"navigationBarTitleText":"新闻中心",
-				"navigationBarBackgroundColor":"#211d1e",
-				"navigationBarTextStyle":"#E9E9F4"
+				"navigationStyle":"custom",
+				"navigationBarTextStyle":"white",
+				// "navigationBarTextStyle":"#E9E9F4",
+				// "navigationBarBackgroundColor":"#211d1e",
+				// "navigationBarTitleText": "首页",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
         },
 		{
@@ -602,14 +610,14 @@
 			{
 				"pagePath":"pages/Allet/Allet",
 				"text": "资产",
-				"iconPath": "static/tabbar/tabbar03.png",
-				"selectedIconPath": "static/tabbar/tabbar08.png"
-			},
-			{
-				"pagePath":"pages/consulting/consulting",
-				"text": "咨询",
 				"iconPath": "static/tabbar/tabbar02.png",
 				"selectedIconPath": "static/tabbar/tabbar07.png"
+			},
+			{
+				"pagePath":"pages/new/new",
+				"text": "资讯",
+				"iconPath": "static/tabbar/tabbar03.png",
+				"selectedIconPath": "static/tabbar/tabbar08.png"
 			},
 			{
 				"pagePath": "pages/person/person",

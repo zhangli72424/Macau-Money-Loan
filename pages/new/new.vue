@@ -2,10 +2,15 @@
 	<view class="app-community">
 		<!-- <view class="pagetitle">市场</view> -->
 		<view class="community-content">
-		<!-- 	<view class="tabs">
-				<view class="tab" @tap="clickTip(0)"><text :class="{active: currentTab}">市场</text></view>
-				<view class="tab" @tap="clickTip(1)"><text :class="{active: !currentTab}">新闻</text></view>
-			</view> -->
+			<u-navbar :is-back="false" :is-fixed="false" :background="background">
+				<view class="tabs">
+					<view class="tab" @tap="clickTip(0)"><text :class="{active: currentTab}">社区动态</text></view>
+					<view class="tab" @tap="clickTip(1)"><text :class="{active: !currentTab}">快讯</text></view>
+				</view>
+			</u-navbar>
+			
+			
+			
 			<view class="list">
 				<view class="li" v-for="(item,index) in list" :key="index" v-if="item.time && item.title && item.content && list.length > 0" @tap="clickBullentin(item)">
 					<view class="time"><view>{{item.time}}</view></view>
@@ -41,7 +46,10 @@
 				// true的时候是节点, false的时候是官方新闻
 				currentTab: true,
 				list: [],
-				isLoading:false
+				isLoading:false,
+				background:{
+					background:"transparent"
+				}
 			}
 		},
 		computed: {
@@ -216,7 +224,7 @@
 			padding-bottom: 50px;
 			.tabs {
 				display: flex;
-				padding: 0 30upx;
+				padding: 40rpx 30upx 0;
 				position: relative;
 				z-index: 2;
 				.tab {
@@ -224,12 +232,16 @@
 					text-align: left;
 					width: 120px;
 					padding: 10upx 0 20upx;
+					display: flex;
+					align-items: center;
 					text {
-						font-size: 14px;
+						font-size: 30rpx;
+						color: #77746A;
 						&.active {
-							color: #1D7DFF;
+							color: $theme-color;
 							position: relative;
 							font-weight: bold;
+							font-size: 48rpx;
 							&::after {
 								position: absolute;
 								left: 50%;
@@ -237,10 +249,10 @@
 								transform: translateX(-50%);
 								content: "";
 								display: block;
-								width: 70upx;
-								height: 4upx;
-								background-color: #1D7DFF;
-								border-radius: 4upx;
+								width: 69upx;
+								height: 8upx;
+								border-radius: 4rpx;
+								background-color: $theme-color;
 							}
 						}
 					}
@@ -260,7 +272,7 @@
 						height: 50upx;
 						view {
 							position: absolute;
-							background: linear-gradient(to right,#E407E8,#5631FD);
+							background: linear-gradient(to right,#CE9A55,#DCB87C);
 							border-radius: 10upx;
 							font-size: 12px;
 							padding: 12upx 20upx 12upx;
@@ -274,7 +286,7 @@
 					}
 					.content {
 						font-size: 11px;
-						color: #8884B7;
+						color: #77746A;
 						margin-top: 20upx;
 						line-height: 18px;
 						letter-spacing: 1px;
@@ -320,7 +332,7 @@
 						position: absolute;
 						width: 1upx;
 						height: 100%;
-						background-color: rgba(#2188FF, .2);
+						background-color: rgba(#ce9a55, .2);
 						left: 14upx;
 						top: 94upx;
 					}

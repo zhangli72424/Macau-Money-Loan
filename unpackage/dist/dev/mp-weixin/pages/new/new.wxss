@@ -137,6 +137,39 @@ view, text, input {
   color: #E9E9F4;
   font-weight: bold;
 }
+view, text, input {
+  box-sizing: border-box;
+  line-height: 1;
+}
+.over-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hover-transform1 {
+  opacity: .95;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.hover-transform2 {
+  background-color: #f6f6f6;
+}
+.nodata {
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 13px;
+}
+.pagetitle {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+  color: #E9E9F4;
+  font-weight: bold;
+}
 .tab-nav {
   display: -webkit-box;
   display: -webkit-flex;
@@ -170,7 +203,7 @@ rich-text .pho {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  padding: 0 30rpx;
+  padding: 40rpx 30rpx 0;
   position: relative;
   z-index: 2;
 }
@@ -179,14 +212,22 @@ rich-text .pho {
   text-align: left;
   width: 120px;
   padding: 10rpx 0 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .app-community .community-content .tabs .tab text {
-  font-size: 14px;
+  font-size: 30rpx;
+  color: #77746A;
 }
 .app-community .community-content .tabs .tab text.active {
-  color: #1D7DFF;
+  color: #EEA935;
   position: relative;
   font-weight: bold;
+  font-size: 48rpx;
 }
 .app-community .community-content .tabs .tab text.active::after {
   position: absolute;
@@ -196,10 +237,10 @@ rich-text .pho {
           transform: translateX(-50%);
   content: "";
   display: block;
-  width: 70rpx;
-  height: 4rpx;
-  background-color: #1D7DFF;
+  width: 69rpx;
+  height: 8rpx;
   border-radius: 4rpx;
+  background-color: #EEA935;
 }
 .app-community .community-content .list {
   padding: 0 24rpx;
@@ -223,8 +264,8 @@ rich-text .pho {
 }
 .app-community .community-content .list .li .time view {
   position: absolute;
-  background: -webkit-linear-gradient(left, #E407E8, #5631FD);
-  background: linear-gradient(to right, #E407E8, #5631FD);
+  background: -webkit-linear-gradient(left, #CE9A55, #DCB87C);
+  background: linear-gradient(to right, #CE9A55, #DCB87C);
   border-radius: 10rpx;
   font-size: 12px;
   padding: 12rpx 20rpx 12rpx;
@@ -237,7 +278,7 @@ rich-text .pho {
 }
 .app-community .community-content .list .li .content {
   font-size: 11px;
-  color: #8884B7;
+  color: #77746A;
   margin-top: 20rpx;
   line-height: 18px;
   letter-spacing: 1px;
@@ -286,7 +327,7 @@ rich-text .pho {
   position: absolute;
   width: 1rpx;
   height: 100%;
-  background-color: rgba(33, 136, 255, 0.2);
+  background-color: rgba(206, 154, 85, 0.2);
   left: 14rpx;
   top: 94rpx;
 }

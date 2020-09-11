@@ -205,7 +205,7 @@
 			this.list = []
 			this.getHistory();
 			this.get_wallet();
-			this.getCheckB();
+			// this.getCheckB();
 			uni.showTabBar({
 				success: (res) => {
 					

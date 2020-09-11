@@ -26,7 +26,7 @@
 	@import '/common/css/common.css';
 	/*每个页面公共css */
 	page{
-		background-color: #0f0f0f;
+		background-color: #141413;
 		color: #FFFFFF;
 	}
 </style>
