@@ -16,15 +16,16 @@
 		</view>
 		<view class="content">
 			<template v-if="accountType==0">
+				<view class="li">
+					<input type="text" :placeholder="i18n.enter_username" v-model="username">
+					<text class="iconfont icon-cha" @tap="username=''"></text>
+				</view>
 				<view class="li state" @tap="gotostate">
 					<view class="left">+ {{getIncode.code}}</text></view>
 					<view class="center">{{getLang == 1? getIncode.zh : getIncode.en}}</view>
 					<view class="right iconfont icon-arrow-right"></view>
 				</view>
-				<view class="li">
-					<input type="text" :placeholder="i18n.enter_username" v-model="username">
-					<text class="iconfont icon-cha" @tap="username=''"></text>
-				</view>
+				
 				<view class="li">
 					<input type="text" :placeholder="i18n.enter_phone" v-model="phone">
 					<text class="iconfont icon-cha" @tap="phone=''"></text>

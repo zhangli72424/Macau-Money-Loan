@@ -407,6 +407,9 @@
 						this.showLoadings = false;
 						this.showMesss = true;
 						this.meg = res.data.msg
+						clearInterval(timer)
+						timer=''
+						timer=null
 						this.getShopList();
 						if(res.data.code==1){
 							this.isok  = true;

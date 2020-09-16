@@ -440,6 +440,7 @@
             "style" : {
 				"navigationStyle": "custom" ,// 隐藏系统导航栏
 				"navigationBarTextStyle": "white" ,
+				"enablePullDownRefresh":true,
 				"app-plus":{
 					"animationType":"slide-out-right",
 					"animationDuration":200,

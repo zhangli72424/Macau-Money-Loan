@@ -106,6 +106,14 @@
 				'getTextArr'
 			])
 		},
+		onPullDownRefresh(){
+			this.page=1;
+			this.list = []
+			this.getHistory();
+		},
+		onReachBottom(){
+			this.getHistory();
+		},
 		onShow(){
 			this.noMore = false;
 			this.totalw=''
