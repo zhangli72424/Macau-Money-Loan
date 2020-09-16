@@ -1,9 +1,7 @@
 <template>
 	<view class="app-ecology">
-		<!-- #ifdef APP-PLUS -->
-			<uni-status-bar bgcolor="#1b2640"></uni-status-bar>
-		<!-- #endif -->
-			<uni-nav-bar-new 
+
+			<!-- <uni-nav-bar-new 
 			leftIcon="fanhui" 
 			title="我的节点" 
 			rightTxt="收益记录" 
@@ -15,7 +13,7 @@
 				<view class="" slot="left" @tap.stop="clickClose">
 					<i class="iconfont icon  iconfanhui"></i>
 				</view>
-			</uni-nav-bar-new>
+			</uni-nav-bar-new> -->
 		<view class="content">
 			<block v-for="(item,index) in list" :key="index">
 				<view class="list">
@@ -58,7 +56,10 @@
 	export default {
 		data() {
 			return {
-				list: []
+				list: [],
+				background:{
+					background:"#ffffff"
+				}
 			}
 		},
 		computed: {
@@ -147,6 +148,32 @@
 </script>
 
 <style lang="scss">
+.nav-title{
+	width: 100%;
+	padding: 0 30rpx;
+	.nav-title-box{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.Allet{
+			font-size: 40rpx;
+			color: #FFFFFF;
+		}
+		.mi{
+			font-size: 26rpx;
+			color: #EEA935;
+			display: flex;
+			align-items: center;
+			image{
+				width: 14rpx;
+				height: 24rpx;
+				magrin-left:10rpx;
+			}
+		}
+	}
+		
+}
 .app-ecology {
 	.nodata{
 		margin-top: 130upx;

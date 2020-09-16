@@ -1,11 +1,11 @@
 <template>
 	<view class="content">
 		
-		<view class="nav_contant">
+	<!-- 	<view class="nav_contant">
 			<view class="nav_item active" >USDT充币</view>
 			<view class="nav_item" @tap.stop="noOpen">微信充币</view>
 			<view class="nav_item" @tap.stop="noOpen">支付宝充币</view>
-		</view>
+		</view> -->
 		
 		
 		<view class="container animated bounceInUp fast">
@@ -62,18 +62,26 @@
 			uni.setNavigationBarTitle({
 				title:`${this.title_en}${this.i18n.Deposit}`
 			})
-		},
-		onLoad(e){
-			this.tokenId = JSON.parse(e.item).id;
-			this.title_en = JSON.parse(e.item).title_en;
-			if(!JSON.parse(e.item).address){
-				this.getAddress();
-			}else{
-				this.address = JSON.parse(e.item).address;
-				this.eImg = this.getRequestUrl+'/static/zhifu_img/'+this.address+'.png'
-			}
+			this.getWallet();
 		},
 		methods:{
+			getWallet(){
+				fetch('/api/wallet/tokenList',{},'post')
+					.then(res=>{
+						if(res.data.code==1){
+							let list = res.data.data
+							console.log(list[0].user_address);
+							this.tokenId = list[0].id;
+							this.title_en = list[0].title_en;
+							if(!list[0].user_address){
+								this.getAddress();
+							}else{
+								this.address = list[0].user_address;
+								this.eImg = this.getRequestUrl+'/static/zhifu_img/'+this.address+'.png'
+							}
+						}
+					})
+			},
 			noOpen(){
 				let mas = this.getLangType=='en'?'Not yet open':'暂未开放'
 				showToast(mas)

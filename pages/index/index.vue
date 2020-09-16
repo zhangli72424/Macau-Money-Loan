@@ -94,13 +94,12 @@
 					</view>
 					<view class="list-banner-center-r">
 						<template v-if="item.type==1">
-							<u-button
-							:custom-style="customStyle0"
-							:hair-line="false"
-							@click="buy"
-							:ripple="true" ripple-bg-color="#909399">
+							
+							<button :style="customStyle0" @tap.stop="buy(item)">
 								马上购买
-							</u-button>
+							</button>
+							
+							
 						</template>
 						<template v-if="item.type==2">
 							<view class="circle-progress ">
@@ -311,7 +310,7 @@
 				},
 				{
 					img:'../../static/image/nav_3.png',
-					url:'/pages/assets/flash-payment'
+					url:'/pages/investment/mining'
 				},
 				{
 					img:'../../static/image/nav_4.png',
@@ -340,8 +339,8 @@
 			_updataTabBar(this.getTextArr,this.getLangType);
 			this.getNotice();
 			this.getLun();
-			// this.getShopList();
-			this.getWallet();
+			this.getShopList();
+			// this.getWallet();
 		},
 		methods: {
 			...mapMutations([
@@ -504,7 +503,8 @@
 					})
 				}
 			},
-			buy(){
+			buy(item){
+				console.log(item);
 				this.cancle()
 			},
 			getLun(){
@@ -971,6 +971,18 @@
 			}
 			.list-banner-center-r{
 				width: 170rpx;
+				button{
+					width:170rpx;
+					height:130rpx;
+					border-radius:20rpx;
+					color:#333333;
+					padding:20rpx 30rpx;
+					font-weight:bold;
+					background:linear-gradient(45deg, #b1883c, #ffd985, #cfab67);
+					border:none;
+					font-size:40rpx;
+					line-height:40rpx;
+				}
 				.circle-progress{
 					display: flex;
 					align-items: center;

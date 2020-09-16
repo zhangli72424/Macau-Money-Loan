@@ -92,7 +92,7 @@
 				{
 					title:'我的理财',
 					image:require('../../static/image/p1.png'),
-					url:'/pages/invite/advertising',
+					url:'/pages/investment/mining',
 					tips:'查理财 看收益'
 				},
 				{

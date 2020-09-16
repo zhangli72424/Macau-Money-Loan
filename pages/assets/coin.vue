@@ -20,7 +20,7 @@
 			</view>
 		</view>
 		<view class="list-tip animated bounceInUp fast">
-			{{i18n.AvailableBalance}}：{{curInfo.balance}} {{curInfo.title_en}}
+			{{i18n.AvailableBalance}}：{{curInfo.balance>=0?curInfo.balance:'-'}} {{curInfo.title_en?curInfo.title_en:'-'}}
 		</view>
 		<view class="list animated bounceInUp fast">
 			<view class="title">
@@ -134,13 +134,14 @@
 				isCheck:false
 			}
 		},
-		onLoad(e){
-			this.curInfo = JSON.parse(e.item)
+		onLoad(){
+			
 			// console.log(this.curInfo);
 			this.phone = this.getLoginInfo.email;
 		},
 		onShow(){
 			forceUpdate(this.getLangType);
+			this.getWallet()
 			if(this.getCoin){
 				this.addressInfo = this.getCoin;
 				this.address = this.addressInfo.address
@@ -161,6 +162,26 @@
 		},
 		methods: {
 			...mapMutations(['setCoin']),
+			getWallet(){
+				fetch('/api/wallet/wallet_list',{},'post')
+					.then(res=>{
+						if(res.data.code==1){
+							
+							let list = res.data.data.list
+							let li = list.filter(item=>{
+								return item.id==3
+							})
+							
+							this.curInfo = li[0]
+							console.log(this.curInfo);
+							// let std = list.filter(item=>{
+							// 	return item.title_en=='STD'
+							// })
+							// this.usdt_info = li[0]
+							// this.std_info = std[0]
+						}
+					})
+			},
 			close(val){
 				if(val==1){
 					this.isshows = false;

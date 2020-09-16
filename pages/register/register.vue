@@ -21,20 +21,20 @@
 					<view class="center">{{getLang == 1? getIncode.zh : getIncode.en}}</view>
 					<view class="right iconfont icon-arrow-right"></view>
 				</view>
-		<!-- 		<view class="li">
+				<view class="li">
 					<input type="text" :placeholder="i18n.enter_username" v-model="username">
 					<text class="iconfont icon-cha" @tap="username=''"></text>
-				</view> -->
+				</view>
 				<view class="li">
 					<input type="text" :placeholder="i18n.enter_phone" v-model="phone">
 					<text class="iconfont icon-cha" @tap="phone=''"></text>
 				</view>
 			</template>
 			<template v-else>
-		<!-- 		<view class="li">
+				<view class="li">
 					<input type="text" :placeholder="i18n.enter_username" v-model="username">
 					<text class="iconfont icon-cha" @tap="username=''"></text>
-				</view> -->
+				</view>
 				<view class="li">
 					<input type="text" :placeholder="i18n.p_EmailAddressOfTheAccountToBeBound" v-model="phone">
 					<text class="iconfont icon-cha" @tap="phone=''"></text>
@@ -128,6 +128,7 @@
 			this.pass = '';
 			this.repass = '';
 			this.invitation = '';
+			this.username=""
 		},
 		methods: {
 			change(){
@@ -190,7 +191,7 @@
 					lang_type: this.getLang,
 					type: this.isPhone ? 2 : 1,
 					code: this.isPhone ? this.getIncode.code : '',
-					username: this.phone,
+					username: this.username,
 				}
 				fetch('/api/login/register', _data, "post")
 					.then(res => {
@@ -199,14 +200,15 @@
 						// uni.hideLoading() 
 						showToast(res.data.msg)
 						this.showLoad = false;
-						this.phone = '';
-						this.rephone = '';
-						this.vcode = '';
-						this.pass = '';
-						this.repass = '';
-						this.invitation = '';
-						this.username = '';
+						
 						if (res.statusCode == 200 && res.data.code == 1) {
+							this.phone = '';
+							this.rephone = '';
+							this.vcode = '';
+							this.pass = '';
+							this.repass = '';
+							this.invitation = '';
+							this.username = '';
 							this.setLogin({
 								username: this.phone,
 								password: this.pass

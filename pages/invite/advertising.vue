@@ -104,7 +104,7 @@
 						this.isCheck  = false;
 						this.showLoadings = false
 						if (res.data.code) {
-							this.code = res.data.data.refer
+							this.code = res.data.data.user_sn
 							this.addressData = res.data.data.qrcode;
 						} else {
 							showToast(res.data.msg);

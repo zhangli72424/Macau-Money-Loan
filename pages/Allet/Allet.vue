@@ -1,24 +1,20 @@
 <template>
 	<view>
 		<view class="wallet-top">
-			 <!-- #ifdef APP-PLUS -->
-			 <uni-status-bar bgcolor="transparent"></uni-status-bar>
-			 <!-- #endif -->
-			<!-- <view class="wallet-top-t">
-				<text>{{cur.title_en}} 投资额</text>
-				<view class="">
-					{{lsitcur.num?(lsitcur.num | formatParsefloat):'0'}}
-				</view>
-			</view> -->
-			<view class="nav-title">
-				<view class="nav-title-box">
-					<view class="Allet">资产</view>
-					<view class="mi">
-						<text>我的理财</text>
-						<image src="../../static/image/back.png"></image>
+			
+			<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
+				<view class="nav-title">
+					<view class="nav-title-box">
+						<view class="Allet">资产</view>
+						<view class="mi" @tap.stop="getUrl('/pages/investment/mining')">
+							<text>我的理财</text>
+							<image src="../../static/image/back.png"></image>
+						</view>
 					</view>
 				</view>
-			</view>
+			</u-navbar>
+			
+			
 		
 			<!-- <view class="wallet-top-nav">
 				<view class="wallet-top-nav-l">
@@ -33,32 +29,7 @@
 			<view class="assets">
 				<view class="assets_image">
 					<image src="../../static/image/allet_image.png" class="bg-class" mode="widthFix" lazy-load></image>
-					<!-- <view class="assets_content">
-						<view class="assets-title assets-public">
-							<view class="view">
-								<view>总资产</view>
-								<view class="">账户余额</view>
-							</view>
-						</view>
-						<view class="assets_num assets-public">
-							<view class="view">
-								<view>总资产</view>
-								<view class="">账户余额</view>
-							</view>
-						</view>
-						<view class="licai assets-public">
-							<view class="view">
-								<view>理财资产</view>
-								<view class="">理财收益</view>
-							</view>
-						</view>
-						<view class="assets-button assets-public">
-							<view class="view">
-								<view class="Recharge btn">充值</view>
-								<view class="Withdraw-money btn">提币</view>
-							</view>
-						</view>
-					</view> -->
+				
 					<view class="assets-content">
 						<view class="assets-left">
 							<view class="assets-color assets-title">总资产</view>
@@ -75,8 +46,8 @@
 						<view class="profit">理财收益 345.88 usdt</view>
 					</view>
 					<view class="assets-content-bottom">
-						<view class="Withdraw-money btn">充币</view>
-						<view class="Withdraw-money btn">提币</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">充币</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/coin')">提币</view>
 					</view>
 				</view>
 			</view>
@@ -174,6 +145,9 @@
 		},
 		data() {
 			return {
+				background:{
+					background:"#141413"
+				},
 				showpopule:false,
 				showLoadings:'',
 				zd_type:'',
@@ -224,6 +198,7 @@
 			])
 		},
 		onShow(){
+			_updataTabBar(this.getTextArr,this.getLangType);
 			this.nopaypwd = false;
 			this.tobeUndo = false;
 			this.isundo = false;
@@ -247,6 +222,9 @@
 			})
 		},
 		methods:{
+			getUrl(url){
+				pageto(url)
+			},
 			getCheckB(){
 				let _url = '/api/Wallet/check_b';
 				fetch(_url,{},'POST').then(res=>{
@@ -557,22 +535,22 @@
 	}
 	@import '@/common/scss/variable.scss';
 	.nav-title{
-		padding-top: 35rpx;
-		height: auto;
-		width: 600rpx;
-		overflow: hidden;
+		width: 100%;
+		padding: 0 30rpx;
 		.nav-title-box{
-			margin: 0 32rpx;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			.Allet{
-				float: left;
 				font-size: 40rpx;
 				color: #FFFFFF;
 			}
 			.mi{
-				float: right;
 				font-size: 26rpx;
 				color: #EEA935;
-				position: relative;
+				display: flex;
+				align-items: center;
 				image{
 					width: 14rpx;
 					height: 24rpx;
@@ -785,7 +763,6 @@
 	.wallet-top{
 		// background: linear-gradient(to bottom,#FFE09F,#D3AD6D);
 		text-align: center;
-		padding: 27rpx 0 0;
 		.wallet-top-t{
 			padding: 40rpx 0 28rpx;
 			text{
