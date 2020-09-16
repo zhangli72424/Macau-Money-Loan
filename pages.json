@@ -260,7 +260,7 @@
 		{
 		    "path" : "pages/team/team",
 		    "style" : {
-				"navigationBarTitleText": "我的部门",
+				"navigationBarTitleText": "我的团队",
 				"navigationBarBackgroundColor":"#211d1e",
 				"navigationBarTextStyle":"#E9E9F4",
 				"app-plus":{
@@ -269,7 +269,7 @@
 					"navigationBarBackgroundColor":"#211d1e",
 					"titleNView":{
 						"type":"transparent",
-						"titleText":"我的部门"
+						"titleText":"我的团队"
 					}
 				}
 			}

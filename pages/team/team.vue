@@ -8,30 +8,28 @@
 				<p class="fonts">{{name1}}</p>
 			</view>
 			<view class="menuList">
+				<view class="item" @tap="toTeam(3)">
+					<view class="_div">直推业绩</view>
+					<view class="_p" :class="{ acolor:lvShow}">{{ztyeji?(ztyeji):'0'}}</view>
+					
+				</view>
 				<view class="item">
-					<div>直推人数</div>
-					<p :class="{ acolor:lvShow}">{{ztrs?ztrs:'0'}}</p>
+					<view class="_div">团队人数</view>
+					<view class="_p" :class="{ acolor:lvShow}">{{tdrs?(tdrs):0}}</view>
 					
 				</view>
 				
 				<view class="item" @tap="toTeam(3)">
-					<div>团队人数</div>
-					<p :class="{ acolor:lvShow}">{{tdrs?tdrs:'0'}}</p>
+					<view class="_div">{{i18n.Team_performance}}</view>
+					<view class="_p" :class="{ acolor:lvShow}">{{yeji?(yeji):'0'}}</view>
 					
 				</view>
-				<view class="item">
-					<div>业绩</div>
-					<p :class="{ acolor:lvShow}">{{yeji?yeji:'0'}}</p>
-					
-				</view>
-				
-				<view class="item" @tap="toTeam(3)">
-					<div>投资额</div>
-					<p :class="{ acolor:lvShow}">{{freeze?freeze:'0'}}</p>
-					
-				</view>
-			
 			</view>
+			
+		<!-- 	<view class="lever-tip" v-if="showMesageShow">
+				{{message}}
+			</view> -->
+			
 			<view class="level-wrapper">
 				<view class="inner-content">
 					<mix-tree :list="list"></mix-tree>
@@ -39,18 +37,31 @@
 			</view>
 		</view>
 		<load v-if="showLoad"></load>
+		<!-- <message 
+		:shows="showMesageShow" 
+		:message="message" 
+		@close="closeMessage" 
+		@jump="closeMessage"/> -->
 	</view>
 </template>
 
 <script>
 	import Load from '../../components/common/load.vue';
 	import {pageto, pageback, fetch, showToast} from "../../common/js/util.js"
-	import {mapGetters,mapMutations} from 'vuex';
+	import {mapGetters, mapMutations} from 'vuex';
 	import mixTree from '@/components/mix-tree/mix-tree';
+	import Message from '@/components/common/message.vue';
 	export default{
 		data(){
 			return{
+				message:'',
+				showMesageShow:false,
+				background:{
+					background:"#0669DC"
+				},
 				showLoad:false,
+				ztyeji:'',
+				ths:'',
 				list: [],
 				tdrs: 0,
 				yeji: 0,
@@ -59,7 +70,7 @@
 				yeji1: '',
 				yeji2:'',
 				name1: '',
-				freeze: '',
+				freeze1: '',
 				lvShow:false,
 				myzt:'',
 				tdsl:'',
@@ -67,8 +78,7 @@
 				ekn_xqyj:'',
 				xqyj:'',
 				dqyj:'',
-				zjtr:'',
-				lv:''
+				zjtr:''
 			}
 		},
 		computed:{
@@ -89,17 +99,28 @@
 				'getFirstTeam'
 			])
 		},
+		// onLoad(e) {
+			// console.log(e);
+			// let infos = JSON.parse(e.item)
+			// this.avatar = infos.avatar ? infos.avatar : '';
+			// this.yeji1 = infos.yeji;
+			// this.name1 = infos.name;
+			// this.freeze1 = infos.freeze;
+		// },
 		onShow(){
+			this.showMesageShow = false;
 			this.list=null;
 			this.list=[];
-			this._getTeamInfo();
-			this.isCheck = false
+			if(this.getFirstTeam){
+				this._getTeamInfo();
+			}
 		},
 		methods:{
 			...mapMutations(['setFirstTeam']),
+			closeMessage(){
+				this.showMesageShow = !this.showMesageShow
+			},
 			_getTeam() {
-				if(this.getFirstTeam) return;
-				this.setFirstTeam(true)
 				let _data = {
 					id: this.getLoginInfo.id,
 					token: this.getLoginInfo.token,
@@ -109,16 +130,22 @@
 				this.showLoad = true;
 				fetch('/api/User/two_user', _data, "post")
 					.then(res => {
+						this.setFirstTeam(false)
 						// uni.hideLoading()
 						this.showLoad = false;
 						let _tmp = {
 								id: this.getLoginInfo.id,
 								username: this.getLoginInfo.username,
 								name: this.name1,
-								lv: this.lv,
-								freeze: this.freeze,
-								yeji:this.yeji
+								yeji2: this.yeji2,
+								freeze: this.freeze1,
+								tdrs:this.tdrs,
+								ekn_tr:this.ekn_tr,
+								ekn_xqyj:this.ekn_xqyj,
+								ztyeji:this.ztyeji,
+								ths:this.ths,
 							};
+							console.log(_tmp);
 						this.list = [_tmp];
 						if (res.data.code==1) {
 							if (res.data.data.length > 0) {
@@ -152,12 +179,14 @@
 						// uni.hideLoading()
 						this.showLoad = false;
 						if (res.data.code) {
-							let {tdrs, yeji, ztrs, myzt, lv, freeze, tdsl, name, ekn_xqyj, ekn_tr, yeji2, ekn_dqyj} = res.data.data;
+							let {tdrs, yeji, ztrs, myzt, ztyeji, ths, freeze, tdsl, name, ekn_xqyj, ekn_tr, yeji2, ekn_dqyj} = res.data.data;
 							this.myzt = myzt;
+							this.ztyeji = ztyeji;
+							this.ths = ths;
 							this.tdrs = tdrs;
 							this.yeji = yeji;
 							this.ztrs = ztrs;
-							this.freeze = freeze;
+							this.freeze1 = freeze;
 							this.name1 = name;
 							this.tdsl = tdsl;
 							this.ekn_tr = ekn_tr;
@@ -166,7 +195,12 @@
 							this.xqyj = ekn_xqyj;
 							this.dqyj = ekn_dqyj;
 							this.zjtr = ekn_tr;
-							this.lv=lv;
+							
+							if(this.ths<=0){
+								this.message = this.getLangType=='chs'?'本帐户未激活，未能享受团队业绩':'This account is not activated and fails to enjoy team performance';
+								this.showMesageShow = true;
+							}
+							
 							this._getTeam();
 						} else {
 							showToast(res.data.msg);
@@ -177,24 +211,30 @@
 			}
 		},
 		components: {
-			mixTree,Load
+			mixTree,Load,Message
 		}
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	@import '@/common/scss/variable.scss';
 	// page {
 	// 	background-color: #f1f1f1;
 	// }
+	.lever-tip{
+		background: $adorn-red;
+		color: $white;
+		text-align: center;
+		line-height: 65rpx;
+	}
 	.app-setting {
 		.list {
 			.level-wrapper {
 				// background: #181a29;
 				padding-top: 1upx;
 				.inner-content {
-					width: 660upx;
-					background:$theme-dark-color;
+					width: 690upx;
+					background:$page-bg-color5;
 					border-radius: 10upx;
 					margin: 30upx;
 					padding: 30upx;
@@ -253,7 +293,7 @@
 							width: 36upx;
 							height: 36upx;
 							border-radius: 10upx;
-							color: $white;
+							color: $default-color;
 							background-color: #f00;
 							border-radius: 8upx;
 							font-size: 16px;
@@ -318,7 +358,7 @@
 				align-items: center;
 				width: 100%;
 				height: 268upx;
-				background: $trans-color;
+				background: #ab9169;
 				&.lastColor{
 					background-color: #c4aa6e;
 				}
@@ -331,7 +371,6 @@
 					image{
 						width: 144upx;
 						height: 144upx;
-						border-radius: 72rpx;
 					}
 				}
 				.fonts{
@@ -353,11 +392,11 @@
 				padding-top:44upx;
 				padding-bottom:52upx;
 				width: 100%;
-				background-color: $theme-dark-color;
+				background-color: #22211e;
 				.item{
-					width: 50%;
+					width: 33.33%;
 					text-align: center;
-					p{
+					._p{
 						font-size: 20px;
 						color: $white;
 						font-weight: bold;
@@ -365,10 +404,11 @@
 							color:#c4aa6e;
 						}
 					}
-					div{
+					._div{
 						font-size: 14px;
 						margin-top: 10upx;
-						color: #A6A7AB;
+						color: $white;
+						margin-bottom: 20rpx;
 					}
 				}
 			}

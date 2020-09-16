@@ -22,8 +22,8 @@
 					</view>
 
 					<view class="assets-content-center">
-						<view class="profit">理财资产 {{totalw || 0}} usdt</view>
-						<view class="profit">理财收益 {{totals || 0}} usdt</view>
+						<view class="profit">理财资产 {{totalw || 0}} USDT</view>
+						<view class="profit">理财收益 {{totals || 0}} USDT</view>
 					</view>
 					<view class="assets-content-bottom">
 						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">充币</view>
@@ -48,7 +48,7 @@
 				<block v-for="(item,index) in list" :key="index">
 					<view class="list">
 						<view class="list-l">
-							<view>{{item.typeStr}}</view>
+							<view>{{item.typeStr}}X{{item.amount}}</view>
 							<text>{{item.time}}</text>
 						</view>
 						<view class="list-r">
@@ -175,6 +175,7 @@
 						if(res.data.code==1){
 							res.data.data.record.forEach((item,index)=>{
 								item.num = parseInt(item.num*1000000)/1000000
+								item.amount =  parseInt(item.amount*1000000)/1000000
 							})
 							
 							if(res.data.data.record.length<10){

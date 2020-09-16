@@ -24,17 +24,26 @@
 							{{item.username}} 
 						</view>
 						
-						<text class="inner-state">{{i18n.grade}}:{{item.lv}}</text>
+						<text v-if="item.name && item.name.length > 0" class="inner-state">{{item.name}}</text>
 						</view>
 						<view class="tree-bottom">
 							<view class="tree-bottom-item">
 								<view class="touzi">
-									{{i18n.touzi_e}}: {{item.freeze | formatParsefloat}}
+									直推业绩: {{item.ztyeji ?item.ztyeji:0}}
 								</view>
+							</view>
+							<view class="tree-bottom-item">
+								
 								<view class="yeji">
-									{{i18n.Performance}}
+									团队人数
 									<!-- {{i18n.team}} -->
-									: {{item.yeji | formatParsefloat}}
+									: {{item.tdrs?item.tdrs:0}} 
+								</view>
+							</view>
+							<view class="tree-bottom-item">
+								
+								<view class="touzi">
+									{{i18n.Team_performance}}: {{item.yeji?item.yeji:0}}
 								</view>
 							</view>
 							
@@ -100,9 +109,14 @@
 						name: item.name,
 						freeze: item.freeze,
 						yeji: item.yeji,
-						lv:item.lv,
+						tdsl:item.tdsl,
+						ekn_tr:item.ekn_tr,
+						ekn_xqyj:item.ekn_xqyj,
+						yeji2:item.yeji2,
 						parentId,  // 父级id数组
 						rank,  // 层级
+						ztyeji:item.ztyeji,
+						ths:item.ths,
 						showChild: false,  //子级是否显示
 						show: rank === 0  // 自身是否显示
 					})
@@ -179,7 +193,7 @@
 				text {
 					padding: 4upx 10upx;
 					background-color: rgba(45, 170, 255, .2);
-					color: #A6A7AB;
+					color: rgba(45, 170, 255, 1);
 					font-size: 9px;
 					margin-left: 30upx;
 					border-radius: 4upx;
@@ -216,13 +230,13 @@
 		}
 	}
 	.mix-tree-item.border{
-		border-bottom: 1px solid #525050;
+		border-bottom: 1px solid $split-line-color1;
 	}
 	.mix-tree-item.show{
 		height: 100upx;
 		opacity: 1;
 		padding: 20upx 0;
-		border-bottom: 1upx solid #525050;
+		border-bottom: 1upx solid $split-line-color1;
 	}
 	.mix-tree-item.show.rank1 {
 		height: 100upx;

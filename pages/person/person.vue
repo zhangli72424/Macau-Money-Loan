@@ -149,6 +149,7 @@
 						}
 						return
 					}
+					this.setFirstTeam(true)
 					pageto(url)
 				}
 			},

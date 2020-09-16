@@ -62,10 +62,16 @@
 						尊享套餐
 					</view>
 					<text v-if="item.type==1">
-						倒计时  {{item.djs_times || '00:00:00'}}
+						<template v-if="!item.countdown">
+							抢购时间  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
+						</template>
+						<template v-else>
+							倒计时  {{item.djs_times || '00:00:00'}}
+						</template>
+						
 					</text>
 					<text v-if="item.type==2">
-						抢购时间  {{item.power || '00:00:00'}} ~！{{item.diff || '00:00:00'}}
+						抢购时间  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
 					</text>
 				</view>
 				<view class="list-banner-center">
@@ -74,7 +80,7 @@
 							{{item.price}}
 						</view>
 						<text class="line-l">售价(USDT)</text>
-						<template v-if="item.type==1">
+						<template v-if="item.jud==1">
 							<view class="progress-class">
 								<u-line-progress 
 								height="20" 
@@ -84,19 +90,20 @@
 								:percent="item.progress"></u-line-progress>
 							</view>
 							<view class="line-bottom">
+					
 								<text>已抢购{{item.buystock}}份</text>
-								<text>剩余{{item.sy_num}}份</text>
+								<text>总量{{item.sy_num}}份</text>
 							</view>
 						</template>
-						<template v-if="item.type==2">
+						<template v-if="item.jud==0">
 							<view class="line-bottom line-bottom-line">
-								<text>剩余抢购份数 {{item.sy_num}}份</text>
+								<text>剩余抢购份数 {{item.Remaining}}份</text>
 								<!-- <text>剩余 500U</text> -->
 							</view>
 						</template>
 					</view>
 					<view class="list-banner-center-r">
-						<template v-if="item.type==1">
+						<template v-if="item.jud==1">
 							
 							<button :style="customStyle0" @tap.stop="buy(item)">
 								马上购买
@@ -104,7 +111,7 @@
 							
 							
 						</template>
-						<template v-if="item.type==2">
+						<template v-if="item.jud==0">
 							<view class="circle-progress ">
 								<u-circle-progress
 								bg-color="transparent"
@@ -152,8 +159,12 @@
 					<text>售价：{{curInfo.price}}</text>
 				</view>
 				<view class="popule-content-li" style="padding-top: 20rpx;">
-					<text style="font-size: 26rpx;">库存</text>
+					<text style="font-size: 26rpx;">总量</text>
 					<view class="popule-content-li-n">{{curInfo.stock}}</view>
+				</view>
+				<view class="popule-content-li" style="padding-top: 20rpx;">
+					<text style="font-size: 26rpx;">已抢购</text>
+					<view class="popule-content-li-n">{{curInfo.buystock}}</view>
 				</view>
 			<!-- 	<view class="Package-details">
 					<view class="Package-details-title">至尊套餐详情</view>
@@ -459,14 +470,24 @@
 							this.list = res.data.data.shop
 							this.list.forEach((item,index)=>{
 								this.list[index].sy_num = Number(item.stock);
-								this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock)+Number(item.buystock))*10000)/100
-								if(item.stock>0 || item.status==1){
+								if(item.jud==1){
+									this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock))*10000)/100
+									this.list[index].Remaining = Number(item.stock)-Number(item.buystock)
+									
+								}else{
+									this.list[index].progress = parseInt(Number(item.buystocktwo)/(Number(item.stocktwo))*10000)/100
+									this.list[index].Remaining = Number(item.stocktwo)-Number(item.buystocktwo)
+								}
+								
+								
+								
+								if(item.status==1){
 									this.list[index].type=1
 								}else{
 									this.list[index].type=2
 								}
 							})
-							
+							console.log(this.list);
 							let hasCount = this.list.filter(item=>item.countdown>0)
 							if(hasCount.length>0){
 								timer = setInterval(()=>{
@@ -993,7 +1014,7 @@
 							color: #FFD388;
 							&:first-of-type{
 								padding-right: 15rpx;
-								border-right: #f5e7bd 1rpx solid ;
+								// border-right: #f5e7bd 1rpx solid ;
 							}
 							&:last-of-type{
 								margin-left: 15rpx;
