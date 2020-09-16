@@ -61,8 +61,11 @@
 					<view>
 						尊享套餐
 					</view>
-					<text>
+					<text v-if="item.type==1">
 						倒计时  {{item.djs_times || '00:00:00'}}
+					</text>
+					<text v-if="item.type==2">
+						抢购时间  {{item.power || '00:00:00'}} ~！{{item.diff || '00:00:00'}}
 					</text>
 				</view>
 				<view class="list-banner-center">
@@ -457,7 +460,7 @@
 							this.list.forEach((item,index)=>{
 								this.list[index].sy_num = Number(item.stock);
 								this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock)+Number(item.buystock))*10000)/100
-								if(item.stock>0){
+								if(item.stock>0 || item.status==1){
 									this.list[index].type=1
 								}else{
 									this.list[index].type=2
