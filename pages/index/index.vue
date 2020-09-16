@@ -9,10 +9,10 @@
 		
 		
 		<!-- 轮播图 -->
-		<!-- <bw-swiper :swiperList="bannerList" :autoplay="true"></bw-swiper> -->
-		<view class="banner">
+		<bw-swiper :swiperList="bannerList" :autoplay="true"></bw-swiper>
+		<!-- <view class="banner">
 			<image src="../../static/image/banner.png"></image>
-		</view>
+		</view> -->
 		<view class="bulletin">
 			<view class="bulletin-img">
 				<image src="../../static/image/xinxi.png" mode="widthFix" lazy-load></image>
@@ -62,13 +62,13 @@
 						尊享套餐
 					</view>
 					<text>
-						倒计时  36:56:20
+						倒计时  {{item.djs_times || '00:00:00'}}
 					</text>
 				</view>
 				<view class="list-banner-center">
 					<view class="list-banner-center-l">
 						<view class="font-text">
-							500.00
+							{{item.price}}
 						</view>
 						<text class="line-l">售价(USDT)</text>
 						<template v-if="item.type==1">
@@ -81,14 +81,14 @@
 								:percent="item.progress"></u-line-progress>
 							</view>
 							<view class="line-bottom">
-								<text>已抢购567份</text>
-								<text>剩余433份</text>
+								<text>已抢购{{item.buystock}}份</text>
+								<text>剩余{{item.sy_num}}份</text>
 							</view>
 						</template>
 						<template v-if="item.type==2">
 							<view class="line-bottom line-bottom-line">
-								<text>限额 7500U</text>
-								<text>剩余 500U</text>
+								<text>剩余抢购份数 {{item.sy_num}}份</text>
+								<!-- <text>剩余 500U</text> -->
 							</view>
 						</template>
 					</view>
@@ -146,19 +146,23 @@
 			<view class="popule-content" @tap.stop="''">
 				<view class="popule-content-title">
 					<view>{{curInfo.title}}</view>
-					<text>售价：{{curInfo.freeze}}</text>
+					<text>售价：{{curInfo.price}}</text>
 				</view>
-				<view class="Package-details">
+				<view class="popule-content-li" style="padding-top: 20rpx;">
+					<text style="font-size: 26rpx;">库存</text>
+					<view class="popule-content-li-n">{{curInfo.stock}}</view>
+				</view>
+			<!-- 	<view class="Package-details">
 					<view class="Package-details-title">至尊套餐详情</view>
 					<view class="Package-details-text">
 						<view>日收益：</view>
 						<view>总收益：</view>
 						<view>收益天数：</view>
 					</view>
-				</view>
+				</view> -->
 				<view class="popule-content-li" style="padding-top: 20rpx;">
 					<text style="font-size: 26rpx;">实际支付价格</text>
-					<view class="popule-content-li-n">{{curInfo.freeze*num}} {{std_info.title_en}}</view>
+					<view class="popule-content-li-n">{{curInfo.price*num}} USDT</view>
 				</view>
 				<view class="popule-content-li">
 					<text style="color: #77746A; font-size: 26rpx;">选择购买份数</text>
@@ -173,7 +177,7 @@
 				</view>
 				<view class="popule-content-li popule-content-li-list">
 					<text>账户余额:</text>
-					<view class="popule-content-li-n">{{std_info.balance}}</view>
+					<view class="popule-content-li-n">{{balance}} USDT</view>
 				</view>
 				
 				<view class="popule-content-btn">
@@ -208,6 +212,7 @@
 	import {mapGetters, mapMutations} from 'vuex' 
 	import bwSwiper from '@/components/bw-swiper/bw-swiper.vue';
 	import Message from '@/components/common/message.vue';
+	var timer;
 	export default {
 		data() {
 			return {
@@ -232,18 +237,59 @@
 				showloadings:false,
 				showpopule:false,
 				isLoading:false,
-				imgList:[],
+				imgList:[{
+					img:'../../static/image/index_1.png',
+					// url:'/pages/index/pool'
+					url:'/pages/developing/developing'
+				},
+				{
+					img:'../../static/image/index2.png',
+					// url:'/pages/investment/investment'
+					url:'/pages/developing/developing'
+				},
+				{
+					img:'../../static/image/index_3.png',
+					// url:'/pages/investment/investment'
+					url:'/pages/developing/developing'
+				}],
 				news:[],
 				bannerList:[],
 				num:1,
 				curInfo:{},
-				navList:[],
+				navList:[{
+					img:'../../static/image/nav_1.png',
+					url:'/pages/assets/recharge'
+				},
+				{
+					img:'../../static/image/nav_2.png',
+					url:'/pages/assets/coin'
+				},
+				{
+					img:'../../static/image/nav_3.png',
+					url:'/pages/investment/mining'
+				},
+				{
+					img:'../../static/image/nav_4.png',
+					url:'/pages/invite/advertising'
+				},],
 				usdt_info:{},
 				std_info:{},
 				isok:false,
 				nopaypwd:false,
-				list:[]
+				list:[],
+				balance:''
 			}
+		},
+		onUnload(){
+			clearInterval(timer)
+			timer=''
+			timer=null
+		},
+		onHide(){
+			clearInterval(timer)
+			timer=''
+			timer=null
+			
 		},
 		computed:{
 			i18n() {
@@ -262,96 +308,31 @@
 			uniStatusBar,Load,bwSwiper,payPwd,Message
 		},
 		onShow() {
-			this.list = [
-				{
-					title:"至尊套餐",
-					sr_time:1600681181,
-					type:1,
-					price:'500.00',
-					buy_stock:'200',
-					stock:'2000',
-					lower_num:100
-				},
-				{
-					title:"至尊套餐",
-					sr_time:1600681181,
-					type:2,
-					price:'500.00',
-					buy_stock:'500',
-					stock:'2000',
-					lower_num:100
-				}
-			]
-			this.list.forEach((item,index)=>{
-				this.list[index].sy_num = Number(item.stock)-Number(item.buy_stock);
-				this.list[index].progress = parseInt(Number(item.buy_stock)/Number(item.stock)*10000)/100
-			})
-			
-			console.log(this.list);
-			
 			this.showMesss = false;
 			this.isok = false;
 			this.nopaypwd = false
 			this.showpopule = false;
-			// this.getCheckB();
 			uni.showTabBar({
 				success: (res) => {
 					
 				}
 			})
-			this.navList = [
-				{
-					img:'../../static/image/nav_1.png',
-					url:'/pages/assets/recharge'
-				},
-				{
-					img:'../../static/image/nav_2.png',
-					url:'/pages/assets/coin'
-				},
-				{
-					img:'../../static/image/nav_3.png',
-					url:'/pages/investment/mining'
-				},
-				{
-					img:'../../static/image/nav_4.png',
-					url:'/pages/invite/advertising'
-				},
-			]
-			this.imgList = [
-				{
-					img:'../../static/image/index_1.png',
-					// url:'/pages/index/pool'
-					url:'/pages/developing/developing'
-				},
-				{
-					img:'../../static/image/index2.png',
-					// url:'/pages/investment/investment'
-					url:'/pages/developing/developing'
-				},
-				{
-					img:'../../static/image/index_3.png',
-					// url:'/pages/investment/investment'
-					url:'/pages/developing/developing'
-				}
-			]
 
 			forceUpdate(this.getLangType);
 			_updataTabBar(this.getTextArr,this.getLangType);
 			this.getNotice();
 			this.getLun();
+			clearInterval(timer)
+			timer=''
+			timer=null
 			this.getShopList();
-			// this.getWallet();
+			
+			
 		},
 		methods: {
 			...mapMutations([
 				'setPlan'
 			]),
-			getCheckB(){
-				let _url = '/api/Wallet/check_b';
-				fetch(_url,{},'POST').then(res=>{
-					
-				})
-			},
 			closeMess(){
 				if(this.nopaypwd){
 					this.showMsg=false;
@@ -403,14 +384,16 @@
 			finish(val){
 				let _data_ = {
 					shopid:this.curInfo.id,
+					token_id:this.curInfo.token_id,
 					num:this.num,
 					paypwd:val
 				}
-				fetch('/api/Shop/buy_shop',_data_,'post')
+				fetch('/api/aomen/buyshop',_data_,'post')
 					.then(res=>{
 						this.showLoadings = false;
 						this.showMesss = true;
 						this.meg = res.data.msg
+						this.getShopList();
 						if(res.data.code==1){
 							this.isok  = true;
 							return
@@ -444,14 +427,61 @@
 						}
 					})
 			},
+			toDate(ms){
+				 var t;
+				if(ms > -1){
+					var hour = Math.floor(ms/3600);
+					var min = Math.floor(ms/60) % 60;
+					var sec = ms % 60;
+					if(hour < 10) {
+						t = '0'+ hour + ":";
+					} else {
+						t = hour + ":";
+					}
+					
+					if(min < 10){t += "0";}
+					t += min + ":";
+					if(sec < 10){t += "0";}
+					t += (Number(sec.toFixed(2)));
+				}
+				return t;
+			},
 			getShopList(){
 				this.showloadings=true
-				fetch('/api/Shop/shop_list',{},'post')
+				fetch('/api/aomen/shoplist',{},'post')
 					.then(res=>{
 						this.showloadings = false;
 						if(res.data.code==1){
-							this.curInfo = res.data.data[0]
-							this.setPlan(JSON.stringify(this.curInfo))
+							this.balance = parseInt(res.data.data.balance*100000000)/100000000
+							this.list = res.data.data.shop
+							this.list.forEach((item,index)=>{
+								this.list[index].sy_num = Number(item.stock);
+								this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock)+Number(item.buystock))*10000)/100
+								if(item.stock>0){
+									this.list[index].type=1
+								}else{
+									this.list[index].type=2
+								}
+							})
+							
+							let hasCount = this.list.filter(item=>item.countdown>0)
+							if(hasCount.length>0){
+								timer = setInterval(()=>{
+									this.list.forEach((item,index)=>{
+										
+										if(item.countdown>0){
+											this.list[index].djs_times = this.toDate(item.countdown)
+											item.countdown--
+										}else{
+											this.list[index].djs_times ='00:00:00'
+										}
+									})
+								},1000)
+							}else{
+								clearInterval(timer)
+								timer=''
+								timer=null
+							}
 						}
 					})
 					.catch(err=>{
@@ -504,6 +534,7 @@
 				}
 			},
 			buy(item){
+				this.curInfo = item;
 				console.log(item);
 				this.cancle()
 			},
@@ -525,13 +556,19 @@
 			imgJump(val){
 				if(val=='/pages/assets/recharge'){
 					uni.navigateTo({
-						url:`/pages/assets/recharge?item=${JSON.stringify(this.usdt_info)}`
+						url:`/pages/assets/recharge`
+					})
+					return
+				}
+				if(val=='/pages/investment/mining'){
+					uni.switchTab({
+						url:'/pages/Allet/Allet'
 					})
 					return
 				}
 				if(val=='/pages/assets/coin'){
 					uni.navigateTo({
-						url:`/pages/assets/coin?item=${JSON.stringify(this.usdt_info)}`
+						url:`/pages/assets/coin`
 					})
 					return
 				}
@@ -639,6 +676,10 @@
 					font-size: 26rpx !important;
 					color: #E9E9F4 !important;
 					margin: 0 !important;
+				}
+				.popule-content-li-n{
+					margin-top: 15rpx !important;
+					font-size: 36rpx !important;
 				}
 			}
 			.popule-content-li{

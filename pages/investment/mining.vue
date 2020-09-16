@@ -56,6 +56,7 @@
 	export default {
 		data() {
 			return {
+				page:1,
 				list: [],
 				background:{
 					background:"#ffffff"
@@ -75,19 +76,11 @@
 		},
 		onShow() {
 			forceUpdate(this.getLangType);
+			this.page=1;
+			this.list =[]
 			this._getList();
-			this.getType();
 		},
 		methods:{
-			getType(){
-				fetch('/api/index/index','','post')
-					.then(res=>{
-						this.tabInfo = res.data.data.zd_type;
-					})
-					.catch(err=>{
-						console.log(err.data.msg);
-					})
-			},
 			dailyRelease(){
 				if(this.is_sf){
 					showToast(this.i18n.Released_today)
@@ -117,7 +110,7 @@
 				_updataTabBar(this.getTextArr, this.getLangType);
 			},
 			_getList() {
-				fetch('/api/shop/spoc_buylist', {}, "post")
+				fetch('/api/aomen/userwealth', {page:this.page,rows:10}, "post")
 					.then(res => {
 						if (res.data.code == 1) {
 							this.list = res.data.data

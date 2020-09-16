@@ -17,7 +17,7 @@
 				this.setLoginInfo('');
 			}
 		}
-	}
+	} 
 </script>
 
 <style>

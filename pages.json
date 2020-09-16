@@ -161,6 +161,7 @@
 				"enablePullDownRefresh":true,
 				"navigationBarTextStyle":"#E9E9F4",
 				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTitleText":"账单",
 				"app-plus":{
 					"navigationBarTitleText":"账单",
 					"navigationBarBackgroundColor":"#211d1e",

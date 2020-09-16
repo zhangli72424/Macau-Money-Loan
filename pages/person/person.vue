@@ -13,21 +13,17 @@
 					<view class="">
 						{{name}}
 					</view>
-					<text>邀请码:HY5671</text>
+					<text>邀请码:{{user_sn || '--'}}</text>
 				</view>
 			</view>
 			
 			<view class="person-bottom">
 				<view class="person-bottom-item">
-					<view>500</view>
-					<text>总资产(usdt)</text>
-				</view>
-				<view class="person-bottom-item">
-					<view>500</view>
+					<view>{{balance || 0}}</view>
 					<text>账户余额(usdt)</text>
 				</view>
 				<view class="person-bottom-item">
-					<view>500</view>
+					<view>{{total || 0}}</view>
 					<text>累积收益(usdt)</text>
 				</view>
 			</view>
@@ -84,17 +80,20 @@
 				background:{
 					background:'#141413'
 				},
-				zd_type:{}
+				zd_type:{},
+				balance:'',
+				total:'',
+				user_sn:''
 			};
 		},
 		onLoad(){
 			this.navList = [
-				{
-					title:'我的理财',
-					image:require('../../static/image/p1.png'),
-					url:'/pages/investment/mining',
-					tips:'查理财 看收益'
-				},
+				// {
+				// 	title:'我的理财',
+				// 	image:require('../../static/image/p1.png'),
+				// 	url:'/pages/investment/mining',
+				// 	tips:'查理财 看收益'
+				// },
 				{
 					title:'邀请好友',
 					image:require('../../static/image/invite.png'),
@@ -124,11 +123,24 @@
 			this.name = this.getLoginInfo.email
 			this.setFirstTeam(false)
 			this.getIndex();
-
+			this.getUser();
 			console.log(this.getFirstTeam);
 		},
 		methods:{
 			...mapMutations(['setFirstTeam']),
+			getUser(){
+				fetch('/api/aomen/user',{},'post')
+					.then(res=>{
+						if(res.data.code==1){
+							this.balance =  parseInt(res.data.data.balance*100000000)/100000000
+							this.total =  parseInt(res.data.data.tota*100000000)/100000000
+							this.user_sn = res.data.data.user.user_sn 
+						}
+					})
+					.catch(err=>{
+						
+					})
+			},
 			jump(url){
 				if(url){
 					if(url=='/pages/bill/bili'){
@@ -205,10 +217,12 @@
 			}
 			.person-name{
 				text{
-					font-size: 20rpx;
+					font-size: 24rpx;
 					// padding: 8rpx 20rpx;
 					// background: #C5A668;
 					// border-radius: 20rpx;
+					text-align: left;
+					display: block;
 				}
 				view{
 					font-size: 40rpx;
@@ -224,7 +238,10 @@
 			padding: 54rpx 0 45rpx;
 			.person-bottom-item{
 				flex: 1;
-				text-align: center;
+				text-align: left;
+				&:last-of-type{
+					text-align: right;
+				}
 				view{
 					font-size: 40rpx;
 					color: $white;
