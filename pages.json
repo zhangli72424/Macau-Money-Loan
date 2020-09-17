@@ -161,9 +161,9 @@
 				"enablePullDownRefresh":true,
 				"navigationBarTextStyle":"#E9E9F4",
 				"navigationBarBackgroundColor":"#211d1e",
-				"navigationBarTitleText":"账单",
+				"navigationBarTitleText":"",
 				"app-plus":{
-					"navigationBarTitleText":"账单",
+					"navigationBarTitleText":"",
 					"navigationBarBackgroundColor":"#211d1e",
 					"navigationBarTextStyle":"#E9E9F4"
 				}
@@ -260,7 +260,7 @@
 		{
 		    "path" : "pages/team/team",
 		    "style" : {
-				"navigationBarTitleText": "我的团队",
+				"navigationBarTitleText": "",
 				"navigationBarBackgroundColor":"#211d1e",
 				"navigationBarTextStyle":"#E9E9F4",
 				"app-plus":{
@@ -269,7 +269,7 @@
 					"navigationBarBackgroundColor":"#211d1e",
 					"titleNView":{
 						"type":"transparent",
-						"titleText":"我的团队"
+						"titleText":""
 					}
 				}
 			}
@@ -295,12 +295,12 @@
 		{
             "path" : "pages/bill/bili",
             "style" : {
-				"navigationBarTitleText": "我的账单",
+				"navigationBarTitleText": "",
 				"navigationBarBackgroundColor":"#211d1e",
 				"navigationBarTextStyle":"#E9E9F4",
 				"enablePullDownRefresh":true,
 				"app-plus":{
-					"navigationBarTitleText":"我的账单",
+					"navigationBarTitleText":"",
 					"navigationBarTextStyle":"#E9E9F4",
 					"navigationBarBackgroundColor":"#211d1e"
 				}

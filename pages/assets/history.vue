@@ -58,6 +58,17 @@
 				'getLoginInfo'
 			]),
 		},
+		onShow(){
+			if(this.getLangType=='chs'){
+				uni.setNavigationBarTitle({
+					title:'账单'
+				})
+			}else{
+				uni.setNavigationBarTitle({
+					title:'Bill'
+				})
+			}
+		},
 		onLoad(e) {
 			forceUpdate(this.getLangType);
 			this.curInfo = JSON.parse(e.item)

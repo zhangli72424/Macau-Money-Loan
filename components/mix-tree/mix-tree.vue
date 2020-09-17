@@ -29,13 +29,13 @@
 						<view class="tree-bottom">
 							<view class="tree-bottom-item">
 								<view class="touzi">
-									直推业绩: {{item.ztyeji ?item.ztyeji:0}}
+									{{i18n.Direct_performance}}: {{item.ztyeji ?item.ztyeji:0}}
 								</view>
 							</view>
 							<view class="tree-bottom-item">
 								
 								<view class="yeji">
-									团队人数
+									{{i18n.Team_size}}
 									<!-- {{i18n.team}} -->
 									: {{item.tdrs?item.tdrs:0}} 
 								</view>

@@ -4,7 +4,7 @@
 			<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 				<view class="nav-title">
 					<view class="nav-title-box">
-						<view class="Allet">资产</view>
+						<view class="Allet">{{i18n.assets}}</view>
 					</view>
 				</view>
 			</u-navbar>
@@ -15,30 +15,30 @@
 					<view class="assets-content">
 
 						<view class="assets-right">
-							<view class="assets-color assets-title">账户余额</view>
+							<view class="assets-color assets-title">{{i18n.Account_Balance}}</view>
 							<view class="assets-color assets_num">{{balance || 0}}</view>
 							
 						</view>
 					</view>
 
 					<view class="assets-content-center">
-						<view class="profit">理财资产 {{totalw || 0}} USDT</view>
-						<view class="profit">理财收益 {{totals || 0}} USDT</view>
+						<view class="profit">{{i18n.Financial_assets}} {{totalw || 0}} USDT</view>
+						<view class="profit">{{i18n.Financial_income}} {{totals || 0}} USDT</view>
 					</view>
 					<view class="assets-content-bottom">
-						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">充币</view>
-						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/coin')">提币</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">{{i18n.Deposit}}</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/coin')">{{i18n.withdrawal}}</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="nav-content">
 			<view class="nav-content-l">
-				<view :class="{'active':navIndex==0}" @tap.stop="selectNav('0')">理财记录</view>
-				<view :class="{'active':navIndex==1}" @tap.stop="selectNav('1')">收益记录</view>
+				<view :class="{'active':navIndex==0}" @tap.stop="selectNav('0')">{{i18n.Financial_records}}</view>
+				<view :class="{'active':navIndex==1}" @tap.stop="selectNav('1')">{{i18n.Revenue_record}}</view>
 			</view>
 			<view class="nav-content-r" @tap.stop="getUrl('/pages/assets/history')">
-				<text>充提记录</text>
+				<text>{{i18n.Filling_record}}</text>
 				<i class="icon iconfont iconxiangyou1"></i>
 			</view>
 		</view>
@@ -53,12 +53,12 @@
 						</view>
 						<view class="list-r">
 							<view>{{item.num}}</view>
-							<text>金额(USDT）</text>
+							<text>{{i18n.Amount}}(USDT）</text>
 						</view>
 					</view>
 				</block>
 				<view class="nodata" v-if="noMore">
-					没有更多~
+					{{i18n.No_more}}~
 				</view>
 			</template>
 			

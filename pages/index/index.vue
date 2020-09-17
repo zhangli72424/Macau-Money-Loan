@@ -59,27 +59,28 @@
 			<view class="list-banner">
 				<view class="list-banner-title">
 					<view>
-						尊享套餐
+						{{item.title}}
 					</view>
 					<text v-if="item.type==1">
 						<template v-if="!item.countdown">
-							抢购时间  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
+							{{i18n.Rush_time}}  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
 						</template>
 						<template v-else>
-							倒计时  {{item.djs_times || '00:00:00'}}
+							{{i18n.count_down}}  {{item.djs_times || '00:00:00'}}
 						</template>
 						
 					</text>
 					<text v-if="item.type==2">
-						抢购时间  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
+						{{i18n.Rush_time}}  {{item.power || '00:00:00'}}~{{item.diff || '00:00:00'}}
 					</text>
 				</view>
 				<view class="list-banner-center">
 					<view class="list-banner-center-l">
+						<text class="line-l line-l-tips" v-if="item.str">{{item.str}}</text>
 						<view class="font-text">
 							{{item.price}}
 						</view>
-						<text class="line-l">售价(USDT)</text>
+						<text class="line-l">{{i18n.Price}}(USDT)</text>
 						<template v-if="item.jud==1">
 							<view class="progress-class">
 								<u-line-progress 
@@ -91,14 +92,14 @@
 							</view>
 							<view class="line-bottom">
 					
-								<text>已抢购{{item.buystock}}份</text>
-								<text>总量{{item.sy_num}}份</text>
+								<text>{{i18n.Snapped_up}}{{item.buystock}}{{i18n.share}}</text>
+								<text>{{i18n.total_amount}}{{item.sy_num}}份</text>
 							</view>
 						</template>
 						<template v-if="item.jud==0">
 							<view class="line-bottom line-bottom-line">
-								<text>剩余抢购份数 {{item.Remaining}}份</text>
-								<!-- <text>剩余 500U</text> -->
+								<text>{{i18n.Remaining_copies}} {{item.Remaining}}份</text>
+								<text>{{i18n.Limited_quantity}} {{item.expinc}}</text>
 							</view>
 						</template>
 					</view>
@@ -106,7 +107,7 @@
 						<template v-if="item.jud==1">
 							
 							<button :style="customStyle0" @tap.stop="buy(item)">
-								马上购买
+								{{i18n.Buy_it_now}}
 							</button>
 							
 							
@@ -119,7 +120,7 @@
 								inactive-color="#d3b17b"
 								active-color="#ffc869" :percent="item.progress">
 										<view class="u-progress-content">
-											<view class="u-progress-dot">已兑换</view>
+											<view class="u-progress-dot">{{i18n.Converted}}</view>
 											<text class='u-progress-info'>{{item.progress}}%</text>
 										</view>
 									</u-circle-progress>
@@ -162,14 +163,19 @@
 			<view class="popule-content" @tap.stop="''">
 				<view class="popule-content-title">
 					<view>{{curInfo.title}}</view>
-					<text>售价：{{curInfo.price}}</text>
+					<text>{{i18n.Price}}：{{curInfo.price}}</text>
 				</view>
+				
 				<view class="popule-content-li" style="padding-top: 20rpx;">
-					<text style="font-size: 26rpx;">总量</text>
+					<text style="font-size: 26rpx;">{{i18n.total_amount}}</text>
 					<view class="popule-content-li-n">{{curInfo.stock}}</view>
 				</view>
 				<view class="popule-content-li" style="padding-top: 20rpx;">
-					<text style="font-size: 26rpx;">已抢购</text>
+					<text style="font-size: 26rpx;">{{i18n.Restricted_purchase}}</text>
+					<view class="popule-content-li-n">{{curInfo.expinc}}</view>
+				</view>
+				<view class="popule-content-li" style="padding-top: 20rpx;">
+					<text style="font-size: 26rpx;">{{i18n.Snapped_up}}</text>
 					<view class="popule-content-li-n">{{curInfo.buystock}}</view>
 				</view>
 			<!-- 	<view class="Package-details">
@@ -181,28 +187,28 @@
 					</view>
 				</view> -->
 				<view class="popule-content-li" style="padding-top: 20rpx;">
-					<text style="font-size: 26rpx;">实际支付价格</text>
+					<text style="font-size: 26rpx;">{{i18n.Actual_price_paid}}</text>
 					<view class="popule-content-li-n">{{curInfo.price*num}} USDT</view>
 				</view>
 				<view class="popule-content-li">
-					<text style="color: #77746A; font-size: 26rpx;">选择购买份数</text>
+					<text style="color: #77746A; font-size: 26rpx;">{{i18n.Select_copies_number}}</text>
 					<view class="popule-content-li-num">
 						<button type="default" 
 						:disabled="num==1"
 						hover-class="active"
 						 @tap.stop="lower">-</button>
-						<input type="text" placeholder="请输入数量" v-model="num" style="font-size: 40rpx;">
+						<input type="text" :placeholder="i18n.Please_enter_quantity" v-model="num" style="font-size: 40rpx;">
 						<button type="default" hover-class="active" @tap.stop="add">+</button>
 					</view>
 				</view>
 				<view class="popule-content-li popule-content-li-list">
-					<text>账户余额:</text>
+					<text>{{i18n.Account_balance}}:</text>
 					<view class="popule-content-li-n">{{balance}} USDT</view>
 				</view>
 				
 				<view class="popule-content-btn">
-					<button type="default" hover-class="active" @tap.stop="cancle">取消</button>
-					<button type="default" hover-class="active" @tap.stop="confrim">支付</button>
+					<button type="default" hover-class="active" @tap.stop="cancle">{{i18n.cancel}}</button>
+					<button type="default" hover-class="active" @tap.stop="confrim">{{i18n.pay}}</button>
 				</view>
 			</view>
 		</view>
@@ -555,6 +561,8 @@
 							this.list.forEach((item,index)=>{
 								this.list[index].sy_num = Number(item.stock);
 								// item.jud=0
+								// item.jud=1
+								// item.expinc=10
 								if(item.jud==1){
 									this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock))*10000)/100
 									this.list[index].Remaining = Number(item.stock)-Number(item.buystock)
@@ -613,14 +621,17 @@
 				// })
 			},
 			lower(){
-				if(this.num>1){
+				if(this.num<=this.curInfo.expinc){
 					this.num--;
 					return
 				}
 				this.num=1
 			},
 			add(){
-				this.num++
+				if(this.num<this.curInfo.expinc){
+					this.num++;
+					return
+				}
 			},
 			cancle(){
 				if(this.showpopule==false){
@@ -1077,6 +1088,10 @@
 					font-size: 24rpx;
 					padding: 22rpx 0 28rpx;
 					display: block;
+					&.line-l-tips{
+						color: #FFD388;
+						font-weight: bold;
+					}
 				}
 				.line-bottom{
 					padding-top: 10rpx;
@@ -1097,7 +1112,7 @@
 							color: #FFD388;
 							&:first-of-type{
 								padding-right: 15rpx;
-								// border-right: #f5e7bd 1rpx solid ;
+								border-right: #f5e7bd 1rpx solid ;
 							}
 							&:last-of-type{
 								margin-left: 15rpx;

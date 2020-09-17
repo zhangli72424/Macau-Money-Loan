@@ -4,8 +4,8 @@
 		<view class="community-content">
 			<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 				<view class="tabs">
-					<view class="tab" @tap="clickTip(0)"><text :class="{active: currentTab}">社区动态</text></view>
-					<view class="tab" @tap="clickTip(1)"><text :class="{active: !currentTab}">快讯</text></view>
+					<view class="tab" @tap="clickTip(0)"><text :class="{active: currentTab}">{{i18n.Community_dynamics}}</text></view>
+					<view class="tab" @tap="clickTip(1)"><text :class="{active: !currentTab}">{{i18n.news_flash}}</text></view>
 				</view>
 			</u-navbar>
 			

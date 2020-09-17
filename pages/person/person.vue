@@ -2,7 +2,7 @@
 	<view>
 		<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 			<view class="index-top">
-				个人中心
+				{{i18n.Personal_Center}}
 			</view>
 		</u-navbar>
 		<view class="person-top">
@@ -13,18 +13,18 @@
 					<view class="">
 						{{name}}
 					</view>
-					<text>邀请码:{{user_sn || '--'}}</text>
+					<text>{{i18n.invite_code}}:{{user_sn || '--'}}</text>
 				</view>
 			</view>
 			
 			<view class="person-bottom">
 				<view class="person-bottom-item">
 					<view>{{balance || 0}}</view>
-					<text>账户余额(usdt)</text>
+					<text>{{i18n.Account_balance}}(usdt)</text>
 				</view>
 				<view class="person-bottom-item">
 					<view>{{total || 0}}</view>
-					<text>累积收益(usdt)</text>
+					<text>{{i18n.Cumulative_income}}(usdt)</text>
 				</view>
 			</view>
 			
@@ -95,25 +95,25 @@
 				// 	tips:'查理财 看收益'
 				// },
 				{
-					title:'邀请好友',
+					title:this.i18n.invite_friends,
 					image:require('../../static/image/invite.png'),
 					url:'/pages/invite/advertising',
-					tips:'邀请好友一起赚钱'
+					tips:this.i18n.friends
 				},
 				{
-					title:'我的账单',
+					title:this.i18n.My_bill,
 					image:require('../../static/image/p2.png'),
 					url:'/pages/bill/bili',
-					tips:'查账单 看流水'
+					tips:this.i18n.financial
 				},
 				{
-					title:'我的团队',
+					title:this.i18n.My_team,
 					image:require('../../static/image/p3.png'),
 					url:'/pages/team/team',
-					tips:'查看团队成员'
+					tips:this.i18n.members
 				},
 				{
-					title:'系统设置',
+					title:this.i18n.System_settings,
 					image:require('../../static/image/p4.png'),
 					url:'/pages/setting/setting'
 				}

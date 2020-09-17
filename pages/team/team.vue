@@ -9,12 +9,12 @@
 			</view>
 			<view class="menuList">
 				<view class="item" @tap="toTeam(3)">
-					<view class="_div">直推业绩</view>
+					<view class="_div">{{i18n.Direct_performance}}</view>
 					<view class="_p" :class="{ acolor:lvShow}">{{ztyeji?(ztyeji):'0'}}</view>
 					
 				</view>
 				<view class="item">
-					<view class="_div">团队人数</view>
+					<view class="_div">{{i18n.Team_size}}</view>
 					<view class="_p" :class="{ acolor:lvShow}">{{tdrs?(tdrs):0}}</view>
 					
 				</view>
@@ -108,6 +108,15 @@
 			// this.freeze1 = infos.freeze;
 		// },
 		onShow(){
+			if(this.getLangType=='chs'){
+				uni.setNavigationBarTitle({
+					title:'我的团队'
+				})
+			}else{
+				uni.setNavigationBarTitle({
+					title:'My team'
+				})
+			}
 			this.showMesageShow = false;
 			this.list=null;
 			this.list=[];

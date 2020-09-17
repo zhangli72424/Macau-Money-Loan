@@ -98,6 +98,15 @@
 			// this.getThings(this.page,this.rows);
 		},
 		onShow(){
+			if(this.getLangType=='chs'){
+				uni.setNavigationBarTitle({
+					title:'我的账单'
+				})
+			}else{
+				uni.setNavigationBarTitle({
+					title:'My bill'
+				})
+			}
 			forceUpdate(this.getLangType);
 			// this.getList();
 		},
