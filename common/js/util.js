@@ -113,6 +113,7 @@ export function forceUpdate (lang) {
 		redirectologin() 
 		return 
 	}
+	// return
 	let target = I18N.messages[lang].message.Language_type;
 	// #ifdef APP-PLUS  
 		// var server = "http://175.126.168.132/api/index/ve"; //检查更新地址

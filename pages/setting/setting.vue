@@ -23,10 +23,10 @@
 				<text class="txt">{{i18n.modify_pwd}}</text>
 				<text class="iconfont icon-arrow-right"></text>
 			</view>
-			<view class="li" hover-class="hover-transform2" @tap="pageto('/pages/setting/modify-email')">
+			<!-- <view class="li" hover-class="hover-transform2" @tap="pageto('/pages/setting/modify-email')">
 				<text class="txt"> {{getLoginInfo.incode=='0'?i18n.Bind_mailbox_modification:'绑定手机号码修改'}}</text>
 				<text class="iconfont icon-arrow-right"></text>
-			</view>
+			</view> -->
 		</view>
 		<Btn :txt="i18n.exit_login" @tapbtn="exit" backgroundColor="#E93841"></Btn>
 		<SwitchLang :isSHow="isSHow" @cancel="cancel"></SwitchLang>

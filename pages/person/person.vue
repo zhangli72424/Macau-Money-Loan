@@ -120,6 +120,7 @@
 			]
 		},
 		onShow(){
+			this.getWallet();
 			this.name = this.getLoginInfo.email
 			this.setFirstTeam(false)
 			this.getIndex();
@@ -128,6 +129,12 @@
 		},
 		methods:{
 			...mapMutations(['setFirstTeam']),
+			getWallet(){
+				fetch('/api/wallet/wallet_list',{},'post')
+					.then(res=>{
+						
+					})
+			},
 			getUser(){
 				fetch('/api/aomen/user',{},'post')
 					.then(res=>{

@@ -287,6 +287,7 @@
 					.content {
 						font-size: 11px;
 						color: #77746A;
+						height: 80rpx;
 						margin-top: 20upx;
 						line-height: 18px;
 						letter-spacing: 1px;

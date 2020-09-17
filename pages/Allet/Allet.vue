@@ -115,6 +115,7 @@
 			this.getHistory();
 		},
 		onShow(){
+			this.getWallet();
 			this.noMore = false;
 			this.totalw=''
 			this.balance='' 
@@ -131,6 +132,12 @@
 			})
 		},
 		methods:{
+			getWallet(){
+				fetch('/api/wallet/wallet_list',{},'post')
+					.then(res=>{
+						
+					})
+			},
 			getUrl(url){
 				if(url=='/pages/assets/history'){
 					let jso = {

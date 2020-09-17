@@ -113,6 +113,7 @@
 						</template>
 						<template v-if="item.jud==0">
 							<view class="circle-progress ">
+								<!--  #ifdef MP-WEIXIN -->
 								<u-circle-progress
 								bg-color="transparent"
 								inactive-color="#d3b17b"
@@ -122,6 +123,11 @@
 											<text class='u-progress-info'>{{item.progress}}%</text>
 										</view>
 									</u-circle-progress>
+									<!--  #endif -->
+									<!--  #ifdef APP-PLUS -->
+									<canvas :canvas-id="'canvasArcbar'+index" id="'canvasArcbar'+index" class="charts3"></canvas>
+									<!--  #endif -->
+									
 							</view>
 							
 						</template>
@@ -226,10 +232,15 @@
 	import {mapGetters, mapMutations} from 'vuex' 
 	import bwSwiper from '@/components/bw-swiper/bw-swiper.vue';
 	import Message from '@/components/common/message.vue';
-	var timer;
+	import uCharts from '@/common/js/u-charts.js';
+	var timer,_self;
 	export default {
 		data() {
 			return {
+				cWidth3:'',//圆弧进度图
+				cHeight3:'',//圆弧进度图
+				arcbarWidth:'',//圆弧进度图，进度条宽度,此设置可使各端宽度一致
+				pixelRatio:1,
 				customStyle0:{
 					width:"170rpx",
 					height:"130rpx",
@@ -294,6 +305,21 @@
 				balance:''
 			}
 		},
+		onLoad(){
+			_self = this;
+			//#ifdef MP-ALIPAY
+			uni.getSystemInfo({
+				success: function (res) {
+					if( res.pixelRatio > 1 ){
+						_self.pixelRatio =2;
+					}
+				}
+			});
+			//#endif
+			this.cWidth3=uni.upx2px(300);
+			this.cHeight3=uni.upx2px(300);
+			this.arcbarWidth=uni.upx2px(12);
+		},
 		onUnload(){
 			clearInterval(timer)
 			timer=''
@@ -343,10 +369,65 @@
 			
 			
 		},
+		watch: {
+			list(newArr) {
+				newArr.forEach((item, index) => {
+					let Arcbar3 = {
+						series: [
+							{
+								color: "#ffc869",
+								data: item.progress / 100 || 0,
+								index: 0,
+								legendShape: "circle",
+								name:item.progress+'%',
+								pointShape: "circle",
+								show: true, 
+								type: "arcbar",
+								_proportion_: 0.19999829999999985,
+								width: '2',
+								day: '已兑换'
+							}
+						]
+					}
+					console.log(Arcbar3);
+					_self.showArcbar3('canvasArcbar'+index, Arcbar3);
+				})
+			}
+		},
 		methods: {
-			...mapMutations([
-				'setPlan'
-			]),
+			showArcbar3(canvasId, chartData){
+				new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					type: 'arcbar',
+					fontSize: 11,
+					legend: false,
+					title: {
+						name: chartData.series[0].day?chartData.series[0].day:'0',
+						color: '#f0e1b7',
+						fontSize: 12*_self.pixelRatio
+					},
+					subtitle: {
+						name: chartData.series[0].name,
+						color: '#FFC869',
+						fontSize: 25*_self.pixelRatio,
+					},
+					extra: {
+						arcbar:{
+							type:'circle',//整圆类型进度条图
+							width: _self.arcbarWidth*_self.pixelRatio,//圆弧的宽度
+							startAngle: 1.5//整圆类型只需配置起始角度即可
+						}
+					},
+					background: '#d3b17b',
+					pixelRatio: _self.pixelRatio,
+					series: chartData.series,
+					animation: true,
+					width: _self.cWidth3*_self.pixelRatio/1.5,
+					height: _self.cHeight3*_self.pixelRatio/1.5,
+					dataLabel: true,
+				});
+			},
 			closeMess(){
 				if(this.nopaypwd){
 					this.showMsg=false;
@@ -473,6 +554,7 @@
 							this.list = res.data.data.shop
 							this.list.forEach((item,index)=>{
 								this.list[index].sy_num = Number(item.stock);
+								// item.jud=0
 								if(item.jud==1){
 									this.list[index].progress = parseInt(Number(item.buystock)/(Number(item.stock))*10000)/100
 									this.list[index].Remaining = Number(item.stock)-Number(item.buystock)
@@ -481,16 +563,13 @@
 									this.list[index].progress = parseInt(Number(item.buystocktwo)/(Number(item.stocktwo))*10000)/100
 									this.list[index].Remaining = Number(item.stocktwo)-Number(item.buystocktwo)
 								}
-								
-								
-								
 								if(item.status==1){
 									this.list[index].type=1
 								}else{
 									this.list[index].type=2
 								}
 							})
-							console.log(this.list);
+							// console.log(this.list);
 							let hasCount = this.list.filter(item=>item.countdown>0)
 							if(hasCount.length>0){
 								timer = setInterval(()=>{
@@ -579,7 +658,7 @@
 					this.showLoad = false;
 				})
 			},
-			...mapMutations(['setBulletin']),
+			...mapMutations(['setBulletin','setPlan']),
 			imgJump(val){
 				if(val=='/pages/assets/recharge'){
 					uni.navigateTo({
@@ -636,6 +715,7 @@
 
 <style scoped lang="scss">
 	@import '@/common/scss/variable.scss';
+	
 	.banner{
 		width: 100%;
 		height: 400rpx;
@@ -1055,6 +1135,13 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					position: relative;
+					.charts3{
+						width: 300rpx ;
+						height: 300rpx;
+						top: -108rpx;
+						position: absolute;
+					}
 					.u-progress-content{
 						text-align: center;
 						.u-progress-dot{
