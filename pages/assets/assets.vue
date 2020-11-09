@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- #ifdef APP-PLUS -->
-		<!-- <uni-status-bar bgcolor="#1B2640"></uni-status-bar> -->
+		<uni-status-bar bgcolor="#1B2640"></uni-status-bar>
 		<!-- #endif -->
 		<view class="assets-title animated bounceInUp fast">
 			<view class="assets-title-top">
@@ -11,7 +11,7 @@
 				{{isShow?(total | formatParsefloat):'***'}}
 			</view>
 			<view class="assets-title-bottom">
-				≈{{isShow?(total | formatParsefloat):'***'}}<text>(USDT)</text>
+				<!-- ≈{{isShow?(total | formatParsefloat):'***'}}<text>(USDT)</text> -->
 			</view>
 		</view>
 		
@@ -27,17 +27,17 @@
 								<text>{{item.title_zh}}</text>
 							</view>
 						</view>
-						<view class="_right giving-text" v-if="item.id==1">
+				<!-- 		<view class="_right giving-text" v-if="item.id==1">
 							<view class="">
 								{{item.giving | formatParsefloat}}
 							</view>
 							<text>{{i18n.Frozen_quantity}}</text>
-						</view>
+						</view> -->
 						<view class="_right">
 							<view class="">
 								{{item.balance | formatParsefloat}}
 							</view>
-							<text>≈ $ {{item.usd_price | formatParsefloat}}</text>
+							<text>≈ {{item.usd_price | formatParsefloat}} U</text>
 						</view>
 					</view>
 					<view class="list-bottom" v-if="item.show" :class="{'anima':item.show}">
@@ -144,13 +144,13 @@
 			jumpReceive(index){
 				let item = JSON.stringify(this.list[index]);
 				uni.navigateTo({
-					url:`/pages/assets/recharge?item=${item}`
+					url:`/pages/assets/assets-recharge?item=${item}`
 				})
 			},
 			jumpTurn(index){
 				let item = JSON.stringify(this.list[index]);
 				uni.navigateTo({
-					url:`/pages/assets/coin?item=${item}`
+					url:`/pages/assets/assets-coin?item=${item}`
 				})
 			},
 			jumpHistory(index){
@@ -186,7 +186,7 @@
 <style lang="scss" scoped>
 	@import '@/common/scss/variable.scss';
 	.assets-title{
-		background: linear-gradient(to right,#3083FF,#001EFF);
+		background: linear-gradient(to top, #DCB87C, #CE9A55);
 		margin: 40upx 30upx;
 		border-radius: 20upx;
 		padding: 54upx 0 66upx 54upx;
@@ -247,7 +247,7 @@
 			color: $white;
 		}
 		.list{
-			background-color: #1B2640;
+			background: #22211E;
 			border-radius: 8upx;
 			margin:0 30upx 20upx;
 			.list-top{
@@ -276,7 +276,7 @@
 							margin-bottom: 2upx;
 							&:last-of-type{
 								font-size: 24upx;
-								color: #58627D;
+								color: #747470;
 							}
 						}
 					}
@@ -297,7 +297,7 @@
 					}
 					text{
 						font-size: 24upx;
-						color: #58627D;
+						color: #747470;
 					}
 				}
 			}
@@ -319,7 +319,7 @@
 						margin: 0 auto;
 						height: 54upx;
 						border-radius: 10upx;
-						background: linear-gradient(to right,#3083FF,#001EFF);
+						background: linear-gradient(to top, #DCB87C, #CE9A55);
 						display: flex;
 						align-items: center;
 						font-size: 26upx;

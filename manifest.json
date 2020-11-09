@@ -1,8 +1,8 @@
 {
-    "name" : "澳门钱贷",
+    "name" : "Money loan",
     "appid" : "__UNI__B8E170F",
     "description" : "",
-    "versionName" : "1.0.4",
+    "versionName" : "1.0.6",
     "versionCode" : "100",
     "transformPx" : false,
     /* 5+App特有相关 */

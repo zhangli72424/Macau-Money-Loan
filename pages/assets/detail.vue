@@ -181,7 +181,7 @@
 					line-height: 50upx;
 					color: $white;
 					font-size: 24upx;
-					background: linear-gradient(to right, #755fe1, #5b37e7);
+					background: $trans-color;
 				}
 			}
 			.list-l{

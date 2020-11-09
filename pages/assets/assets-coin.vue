@@ -134,14 +134,13 @@
 				isCheck:false
 			}
 		},
-		onLoad(){
-			
+		onLoad(e){
+			this.curInfo = JSON.parse(e.item)
 			// console.log(this.curInfo);
 			this.phone = this.getLoginInfo.email;
 		},
 		onShow(){
 			forceUpdate(this.getLangType);
-			this.getWallet()
 			if(this.getCoin){
 				this.addressInfo = this.getCoin;
 				this.address = this.addressInfo.address
@@ -162,26 +161,6 @@
 		},
 		methods: {
 			...mapMutations(['setCoin']),
-			getWallet(){
-				fetch('/api/wallet/wallet_list',{},'post')
-					.then(res=>{
-						if(res.data.code==1){
-							
-							let list = res.data.data.list
-							let li = list.filter(item=>{
-								return item.id==3
-							})
-							
-							this.curInfo = li[0]
-							console.log(this.curInfo);
-							// let std = list.filter(item=>{
-							// 	return item.title_en=='STD'
-							// })
-							// this.usdt_info = li[0]
-							// this.std_info = std[0]
-						}
-					})
-			},
 			close(val){
 				if(val==1){
 					this.isshows = false;
@@ -192,10 +171,6 @@
 					this.showpwd = val;
 					this.showss = val
 				}
-			},
-			_judgeEmail(str) {
-				let reg = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
-				return reg.test(str)
 			},
 			inputAgain(val){
 				this.isshows = false;
@@ -212,7 +187,7 @@
 					remark:this.remark,
 					yzm:this.yzm,
 					token_id:this.curInfo.token_id,
-					type:this._judgeEmail(this.phone)?1:2
+					type:1
 				}
 				if(this.isCheck) return
 				this.isCheck  = true;

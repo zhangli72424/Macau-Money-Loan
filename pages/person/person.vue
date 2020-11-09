@@ -86,7 +86,13 @@
 				user_sn:''
 			};
 		},
-		onLoad(){
+		onShow(){
+			this.getWallet();
+			this.name = this.getLoginInfo.email
+			this.setFirstTeam(false)
+			this.getIndex();
+			this.getUser();
+			console.log(this.getFirstTeam);
 			this.navList = [
 				// {
 				// 	title:'我的理财',
@@ -118,14 +124,6 @@
 					url:'/pages/setting/setting'
 				}
 			]
-		},
-		onShow(){
-			this.getWallet();
-			this.name = this.getLoginInfo.email
-			this.setFirstTeam(false)
-			this.getIndex();
-			this.getUser();
-			console.log(this.getFirstTeam);
 		},
 		methods:{
 			...mapMutations(['setFirstTeam']),

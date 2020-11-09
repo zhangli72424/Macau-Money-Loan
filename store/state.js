@@ -14,8 +14,8 @@ const state = {
 	gesturePassword:uni.getStorageSync('gesturePassword') || '',
 	mdpass: uni.getStorageSync('mdpass') ||'',
 	textArr: {
-		chs: [ "首页", "资产", "资讯", "我的" ],
-		en: [ "Home", "Allet", "News", "Mine" ]
+		chs: [ "首页",  "收益","资产", "资讯", "我的" ],
+		en: [ "Home","Icome",  "Allet", "News", "Mine" ]
 	},
 	bulletin: {},
 	weixinzhifu: {},

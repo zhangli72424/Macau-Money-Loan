@@ -131,34 +131,6 @@ export function forceUpdate (lang) {
 				if(res.statusCode == 200 && res.data.code == 1){
 					let downs = res.data.data.down;
 					if(res.data.data.is_up  == '1'){
-						if(uni.getSystemInfoSync().platform == 'ios'){
-							if(req.version  == res.data.data.ios_ve){
-							}else{
-								uni.showModal({ //提醒用户更新
-									title: target.update,  
-									content: target.update_tip,
-									success: (res) => {
-										if (res.confirm) {
-											uni.showToast(target.isJumping)
-											setTimeout(()=>{
-												plus.runtime.openURL(downs);
-											}, 500)												 
-										}else{
-											uni.showToast(target.soon_update);
-											setTimeout(() => {
-												// #ifdef APP-PLUS  
-												plus.runtime.quit();  
-												// #endif
-												redirectologin()
-											}, 500)
-										}
-									},
-									fail:(err)=>{
-										showToast(target.fail)
-									}
-								})
-							}
-						}else if(uni.getSystemInfoSync().platform === 'android'){
 							if(req.version  == res.data.data.ve){
 							}else{
 								uni.showModal({ //提醒用户更新
@@ -185,7 +157,7 @@ export function forceUpdate (lang) {
 									}
 								})
 							}
-						}
+						
 					}
 				} else {
 					redirectologin()

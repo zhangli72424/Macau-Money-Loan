@@ -1,13 +1,16 @@
 <template>
 	<view>
+		<!-- #ifdef APP-PLUS -->
+		<uni-status-bar bgcolor="#1B2640"></uni-status-bar>
+		<!-- #endif -->
 		<view class="wallet-top">	
-			<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
+	<!-- 		<u-navbar :is-back="false" zIndex="9" :is-fixed="false" :background="background">
 				<view class="nav-title">
 					<view class="nav-title-box">
-						<view class="Allet">{{i18n.assets}}</view>
+						<view class="Allet">USDT {{i18n.assets}}</view>
 					</view>
 				</view>
-			</u-navbar>
+			</u-navbar> -->
 			<view class="assets">
 				<view class="assets_image">
 					<image src="../../static/image/allet_image.png" class="bg-class" mode="widthFix" lazy-load></image>
@@ -15,7 +18,7 @@
 					<view class="assets-content">
 
 						<view class="assets-right">
-							<view class="assets-color assets-title">{{i18n.Account_Balance}}</view>
+							<view class="assets-color assets-title">USDT{{i18n.Account_Balance}}</view>
 							<view class="assets-color assets_num">{{balance || 0}}</view>
 							
 						</view>
@@ -26,8 +29,8 @@
 						<view class="profit">{{i18n.Financial_income}} {{totals || 0}} USDT</view>
 					</view>
 					<view class="assets-content-bottom">
-						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">{{i18n.Deposit}}</view>
-						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/coin')">{{i18n.withdrawal}}</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/recharge')">USDT{{i18n.Deposit}}</view>
+						<view class="Withdraw-money btn" @tap.stop="getUrl('/pages/assets/coin')">USDT{{i18n.withdrawal}}</view>
 					</view>
 				</view>
 			</view>
@@ -37,10 +40,10 @@
 				<view :class="{'active':navIndex==0}" @tap.stop="selectNav('0')">{{i18n.Financial_records}}</view>
 				<view :class="{'active':navIndex==1}" @tap.stop="selectNav('1')">{{i18n.Revenue_record}}</view>
 			</view>
-			<view class="nav-content-r" @tap.stop="getUrl('/pages/assets/history')">
+			<!-- <view class="nav-content-r" @tap.stop="getUrl('/pages/assets/history')">
 				<text>{{i18n.Filling_record}}</text>
 				<i class="icon iconfont iconxiangyou1"></i>
-			</view>
+			</view> -->
 		</view>
 		
 		<view class="list-content">

@@ -1,13 +1,5 @@
 <template>
 	<view class="content">
-		
-	<!-- 	<view class="nav_contant">
-			<view class="nav_item active" >USDT充币</view>
-			<view class="nav_item" @tap.stop="noOpen">微信充币</view>
-			<view class="nav_item" @tap.stop="noOpen">支付宝充币</view>
-		</view> -->
-		
-		
 		<view class="container animated bounceInUp fast">
 			<!-- <view class="title">{{title_en}}充币</view> -->
 			<view class="qr-code">
@@ -17,7 +9,7 @@
 				<button type="default" hover-class="active" @tap.stop="save">{{i18n.save}}</button>
 			</view>
 			<view class="address">
-				<view class="address-title">USDT{{i18n.address}}：</view>
+				<view class="address-title">{{i18n.address}}：</view>
 				<view class="address-content">
 					{{address}}
 				</view>
@@ -60,34 +52,20 @@
 		onShow(){
 			forceUpdate(this.getLangType);
 			uni.setNavigationBarTitle({
-				title:`${this.title_en}${this.i18n.Deposit}`
+				title:`${this.title_en}${this.i18n.recharge}`
 			})
-			this.getWallet();
+		},
+		onLoad(e){
+			this.tokenId = JSON.parse(e.item).id;
+			this.title_en = JSON.parse(e.item).title_en;
+			if(!JSON.parse(e.item).address){
+				this.getAddress();
+			}else{
+				this.address = JSON.parse(e.item).address;
+				this.eImg = this.getRequestUrl+'/static/zhifu_img/'+this.address+'.png'
+			}
 		},
 		methods:{
-			getWallet(){
-				fetch('/api/wallet/tokenList',{},'post')
-					.then(res=>{
-						if(res.data.code==1){
-							let list = res.data.data.filter(item=>item.id==3)
-							console.log(list[0].user_address);
-							
-							
-							this.tokenId = list[0].id;
-							this.title_en = list[0].title_en;
-							if(!list[0].user_address){
-								this.getAddress();
-							}else{
-								this.address = list[0].user_address;
-								this.eImg = this.getRequestUrl+'/static/zhifu_img/'+this.address+'.png'
-							}
-						}
-					})
-			},
-			noOpen(){
-				let mas = this.getLangType=='en'?'Not yet open':'暂未开放'
-				showToast(mas)
-			},
 			save(){
 				// #ifdef APP-PLUS
 				let _self = this;
@@ -181,38 +159,9 @@
 	@import '@/common/scss/variable.scss';
 	.content{
 		padding: 40upx 30upx;
-		.nav_contant{
-			display: flex;
-			align-content: center;
-			justify-content: center;
-			background: #212121;
-			line-height: 80rpx;
-			margin-bottom: 40rpx;
-			.nav_item{
-				margin-right: 40rpx;
-				&.active{
-					color: #ffd785;
-					position: relative;
-					&::after{
-						content: "";
-						position: absolute;
-						width: 68rpx;
-						height: 6rpx;
-						transform: translateX(-50%);
-						background: #FFD785;
-						left: 50%;
-						bottom: 0;
-
-					}
-				}
-				&:last-of-type{
-					margin-right: 0;
-				}
-			}
-		}
 		.container{
 			padding: 40upx 0 40upx;
-			background-color: $default-color;
+			background-color: $page-bg-color5;
 			border-radius:10upx;
 			.title{
 				line-height: 114upx;
@@ -239,7 +188,7 @@
 					margin: 0 auto;
 					line-height: 50upx;
 					text-align: center;
-					background: $trans-color;
+					background-color: $theme-color;
 					color: $white;
 					font-size: 26upx;
 					&.active{
@@ -256,10 +205,10 @@
 					margin-bottom: 18upx;
 				}
 				.address-content{
-					color: $white;
+					color: $default-color;
 					font-size: 30upx;
 					padding: 26upx;
-					background-color: #0f0f0f;
+					background-color: $split-line-color1;
 					text-align: center;
 					border-radius: 10upx;
 					word-wrap:break-word;
@@ -282,7 +231,7 @@
 		.tip{
 			margin-top: 30upx;
 			font-size: 24upx;
-			color: #A6A7AB;
+			color: $text-gray-color1;
 			line-height: 40upx;
 		}
 	}

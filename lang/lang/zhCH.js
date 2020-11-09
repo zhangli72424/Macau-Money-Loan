@@ -651,7 +651,7 @@ export default {
 	pay_immediately:'立即支付',
 	false_tip0:'闪兑数量超出你所拥有的数量，请修改',
 	Flash_payment_record:'闪付记录',
-	recarge_tip0:'请勿像上述地址充值任何非',
+	recarge_tip0:'请勿向上述地址充值任何非',
 	recarge_tip1:'您充值至上述地址后，需要整个网络节点的确认。请勿像上述地址充值任何非币种资产，否则资产将不可找回',
 	no_login:'未登录',
 	Purchase_History:'购买记录',

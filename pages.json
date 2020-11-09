@@ -13,6 +13,22 @@
 			}
 		},
 		{
+			"path": "pages/assets/assets-recharge",
+			"style": {
+				"navigationBarTitleText":"充币",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4"
+			}
+		},
+		{
+			"path": "pages/assets/assets-coin",
+			"style": {
+				"navigationBarTitleText":"提币",
+				"navigationBarBackgroundColor":"#211d1e",
+				"navigationBarTextStyle":"#E9E9F4"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationStyle":"custom",
@@ -113,7 +129,7 @@
 				"navigationBarTextStyle":"#E9E9F4",
 				"navigationBarBackgroundColor":"#211d1e",
 				"app-plus":{
-					"navigationBarTitleText":"充币",
+					"navigationBarTitleText":"USDT充币",
 					"navigationBarBackgroundColor":"#211d1e",
 					"navigationBarTextStyle":"#E9E9F4"
 				}
@@ -606,6 +622,12 @@
 			},
 			{
 				"pagePath":"pages/Allet/Allet",
+				"text": "收益",
+				"iconPath": "static/tabbar/tabbar02.png",
+				"selectedIconPath": "static/tabbar/tabbar07.png"
+			},
+			{
+				"pagePath":"pages/assets/assets",
 				"text": "资产",
 				"iconPath": "static/tabbar/tabbar02.png",
 				"selectedIconPath": "static/tabbar/tabbar07.png"

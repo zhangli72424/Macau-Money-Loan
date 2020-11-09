@@ -3,6 +3,10 @@
 		<view class="content">
 			<view class='title' v-if="getBulletin.title">{{getBulletin.title}}</view>
 			<rich-text class="p" :nodes="modifiedContent"></rich-text>
+			
+			<rich-text class="p" :nodes="content"></rich-text>
+			
+			
 		</view>
 	</view>
 </template>
@@ -14,7 +18,8 @@ export default {
 	data() {
 		return {
 			title: '',
-			modifiedContent:''
+			modifiedContent:'',
+			content:''
 		}
 	},
 	computed: {
@@ -29,9 +34,23 @@ export default {
 			'getLangType'
 		])
 	},
+	onShow(){
+		this.getDetialsrere()
+	},
 	methods: {
 		tapNavLeft() {
 			pageback();
+		},
+		getDetialsrere(){
+			let _this = this
+			uni.request({
+				url:'https://api2.shenxuanche.com/getHomeNewsInfo_V2.aspx?newsId=460346',
+				success:function(res){
+					let content = res.data.items.data.content
+					_this.content = content
+					console.log(content);
+				}
+			})
 		}
 	},
 	onLoad(e) {

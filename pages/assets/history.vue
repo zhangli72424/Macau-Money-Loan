@@ -262,14 +262,14 @@
 			font-size: 34upx;
 			&.active{
 				position: relative;
-				color: #0063FF;
+				color: #EEA935;
 				&::after{
 					content:"";
 					left: 50%;
 					bottom: 0;
 					width: 100upx;
 					height: 3upx;
-					background-color: #0063FF;
+					background-color: #EEA935;
 					position: absolute;
 					transform: translateX(-50%);
 				}
